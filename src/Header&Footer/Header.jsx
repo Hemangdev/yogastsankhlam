@@ -15,8 +15,8 @@ const Header = () => {
             <div className="max-w-[1540px] mx-auto p-4 bg-[#fff7eb]">
                 <div className="flex items-center justify-between">
                     {/* Logo Section */}
-                    <div className="logo-div">
-                        <h1 className="text-black">YOGA.</h1>
+                    <div className="logo-div"> 
+                        <h1 className="text-black uppercase font-bold">Yogastsankhlam.</h1>
                     </div>
 
                     {/* Desktop Menu */}

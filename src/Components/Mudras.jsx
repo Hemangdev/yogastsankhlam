@@ -30,15 +30,15 @@ const Mudras = () => {
         <>
             {
                 mudrasData.map((item, index) => (
-                    <div key={item.id} className="max-w-[22rem] sm:max-w-[20rem] md:max-w-[18rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div key={item.id} className="max-w-[22rem] sm:max-w-[20rem] md:max-w-[18rem] bg-[#fff7eb] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <img className="rounded-t-lg" src={item.img} alt="" />
                         </a>
                         <div className="p-5">
                             <a href="#">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.mudra}</h5>
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#3D211A]">{item.mudra}</h5>
                             </a>
-                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">({item.details})</p>
+                            <p className="mb-3 font-normal text-[#725C4C]">({item.details})</p>
 
                         </div>
                     </div>
