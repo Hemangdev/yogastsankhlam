@@ -5,6 +5,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import banner from '../assets/banner.png'
+import AboutImg from '../assets/about-us.png'
 import { motion } from 'framer-motion';
 
 const Home = () => {
@@ -59,6 +60,25 @@ const Home = () => {
                             </button>
                         </div>
                     </motion.div>
+                </div>
+
+                {/*About Us Div  */}
+
+                <div className='flex flex-col w-full items-center md:flex-row my-5 p-4'>
+                    <div>
+                        <h2 className='text-[32px] font-bold text-[#3D211A]'>About Us</h2>
+                        <p style={{lineHeight:'30px'}} className='text-[#725C4C]'>Yogastsankhlam is a premier studio dedicated to the art of yoga and meditation. We offer a holistic approach to sharpening your yoga practice through carefully curated sessions that blend traditional techniques with modern insights.</p>
+                        <div className='mt-[20px]'>
+                            <button className="px-2 py-2 md:px-4 md:py-2 rounded-sm bg-[#cbb799] text-white font-semibold text-[10px] md:text-[20px]">
+                                EXPLORE MORE
+                            </button>
+                        </div>
+                    </div>
+                    {/* Img Div */}
+                    <div className='mt-4'>
+                        <img src={AboutImg} alt="" />
+                    </div>
+
                 </div>
 
             </div>
