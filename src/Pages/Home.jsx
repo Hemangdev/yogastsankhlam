@@ -7,6 +7,8 @@ import "swiper/css/navigation";
 import banner from '../assets/banner.png'
 import AboutImg from '../assets/about-us.png'
 import { motion } from 'framer-motion';
+import EnquireNow from '../Components/EnquireNow';
+import Mudras from '../Components/Mudras';
 
 const Home = () => {
 
@@ -64,19 +66,64 @@ const Home = () => {
 
                 {/*About Us Div  */}
 
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={fadeUpVariants}
+                >
+
+                    <div className='flex flex-col w-full items-center md:flex-row my-5 p-4'>
+                        <div>
+                            <h2 className='text-[32px] font-bold text-[#3D211A]'>About Us</h2>
+                            <p style={{ lineHeight: '30px' }} className='text-[#725C4C]'>Yogastsankhlam is a premier studio dedicated to the art of yoga and meditation. We offer a holistic approach to sharpening your yoga practice through carefully curated sessions that blend traditional techniques with modern insights.</p>
+                            <div className='mt-[20px]'>
+                                <button className="px-2 py-2 md:px-4 md:py-2 rounded-sm bg-[#cbb799] text-white font-semibold text-[10px] md:text-[20px]">
+                                    EXPLORE MORE
+                                </button>
+                            </div>
+                        </div>
+                        {/* Img Div */}
+                        <div className='mt-4'>
+                            <img style={{ filter: 'brightness(50%)' }} src={AboutImg} alt="" />
+                        </div>
+
+                    </div>
+                </motion.div>
+
+
+                <div>
+                    <EnquireNow />
+                </div>
+
+
+                <div className='my-5'>
+                    <h3 className='text-[32px] font-bold text-[#3D211A] text-center'>Popular Yog Mudras</h3>
+
+                    <div className='w-full flex flex-col items-center justify-center gap-3 mt-[30px]'>
+                        <Mudras />
+                    </div>
+                </div>
+
+                <div>
+                    <EnquireNow />
+                </div>
+
+                {/* Book a Training Session */}
                 <div className='flex flex-col w-full items-center md:flex-row my-5 p-4'>
                     <div>
-                        <h2 className='text-[32px] font-bold text-[#3D211A]'>About Us</h2>
-                        <p style={{lineHeight:'30px'}} className='text-[#725C4C]'>Yogastsankhlam is a premier studio dedicated to the art of yoga and meditation. We offer a holistic approach to sharpening your yoga practice through carefully curated sessions that blend traditional techniques with modern insights.</p>
+                        <h2 className='text-[32px] font-bold text-[#3D211A]'>Traning Session</h2>
+                        <p style={{ lineHeight: '30px' }} className='text-[#725C4C]'>Yogastsankhlam is the best studio of the yoga
+                            and meditation, sharp your yoga with
+                            astsankhlam</p>
                         <div className='mt-[20px]'>
                             <button className="px-2 py-2 md:px-4 md:py-2 rounded-sm bg-[#cbb799] text-white font-semibold text-[10px] md:text-[20px]">
-                                EXPLORE MORE
+                                BOOK A DEMO
                             </button>
                         </div>
                     </div>
                     {/* Img Div */}
                     <div className='mt-4'>
-                        <img src={AboutImg} alt="" />
+                        <img style={{ filter: 'brightness(50%)' }} src={AboutImg} alt="" />
                     </div>
 
                 </div>
