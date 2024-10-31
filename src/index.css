@@ -4,7 +4,29 @@
 @tailwind utilities;
 
 
-body{
+body {
   font-family: "Quicksand";
   background-color: #fff7eb;
+}
+
+.swiper-pagination {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px auto;
+  width: 100px !important;
+}
+
+.swiper-pagination span {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  background-color: #b27f4a;
+}
+
+.swiper-pagination-bullet-active-active-main {}
+
+  .swiper-pagination-bullet-active-main {
+  background-color: #705f5b;
 }
