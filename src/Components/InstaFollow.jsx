@@ -84,9 +84,9 @@ const InstaFollow = () => {
                 {
                     instaData.map((item, index) => (
                         <SwiperSlide>
-                            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                <InstagramEmbed url={item.url} width={350} />
-                            </div> 
+                            <div  style={{ display: 'flex', justifyContent: 'center' }}>
+                                <InstagramEmbed className='rounded-2xl' url={item.url} width={350} height={450} />
+                            </div>
                         </SwiperSlide>
                     ))
                 }
