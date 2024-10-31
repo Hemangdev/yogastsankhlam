@@ -10,6 +10,7 @@ import AboutImg from '../assets/about-us.png'
 import { motion } from 'framer-motion';
 import EnquireNow from '../Components/EnquireNow';
 import Mudras from '../Components/Mudras';
+import InstaFollow from '../Components/InstaFollow';
 
 const Home = () => {
 
@@ -171,6 +172,19 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+
+
+                <div className='my-5'>
+                    <div className='w-full text-center py-5 bg-[#705f5b]'>
+                        <h5 className='text-white font-bold'>Follow us on Instagram</h5>
+                        <span className='text-white font-semibold'>@yog_astsankhlam</span>
+                    </div>
+
+                    <div className='mt-5'> 
+                        <InstaFollow />
+                    </div>
+
                 </div>
 
             </div>
