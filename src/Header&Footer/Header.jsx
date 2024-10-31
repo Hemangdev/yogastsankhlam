@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'; // Import the hamburger icon
 import { AiOutlineClose } from 'react-icons/ai'; // Optional close icon
+import { Link } from 'react-router-dom'
 
 const Header = () => {
 
@@ -15,7 +16,7 @@ const Header = () => {
             <div className="max-w-[1540px] mx-auto p-4 bg-[#fff7eb]">
                 <div className="flex items-center justify-between">
                     {/* Logo Section */}
-                    <div className="logo-div"> 
+                    <div className="logo-div">
                         <h1 className="text-black uppercase font-bold">Yogastsankhlam.</h1>
                     </div>
 
@@ -25,7 +26,10 @@ const Header = () => {
                             <li>Home</li>
                             <li>About Us</li>
                             <li>Courses</li>
-                            <li>Blogs</li>
+                            <Link to={'/blogs'}>
+                                <li >Blogs</li>
+                            </Link>
+
                             <li>Contact</li>
                             <li>Gallery</li>
                         </ul>
@@ -58,10 +62,13 @@ const Header = () => {
                         />
                     </div>
                     <ul className="p-4 space-y-6">
-                        <li onClick={toggleDrawer}>Home</li>
+                        <li onClick={toggleDrawer}><a href="/">Home</a></li>
                         <li onClick={toggleDrawer}>About Us</li>
                         <li onClick={toggleDrawer}>Courses</li>
-                        <li onClick={toggleDrawer}>Blogs</li>
+
+                        <li onClick={toggleDrawer}><a href="/blogs">Blogs</a></li>
+
+
                         <li onClick={toggleDrawer}>Contact</li>
                         <li onClick={toggleDrawer}>Gallery</li>
                     </ul>
