@@ -17,7 +17,7 @@ const Header = () => {
                 <div className="flex items-center justify-between">
                     {/* Logo Section */}
                     <div className="logo-div">
-                        <h1 className="text-black uppercase font-bold">Yogastsankhlam.</h1>
+                        <h1 className="text-black uppercase font-bold"><a href="/">Yogastsankhlam.</a></h1>
                     </div>
 
                     {/* Desktop Menu */}
@@ -25,7 +25,9 @@ const Header = () => {
                         <ul className="flex items-center gap-8">
                             <li>Home</li>
                             <li>About Us</li>
-                            <li>Courses</li>
+                            <Link to={'/our-courses'}>
+                                <li>Courses</li>
+                            </Link>
                             <Link to={'/blogs'}>
                                 <li >Blogs</li>
                             </Link>
@@ -64,7 +66,7 @@ const Header = () => {
                     <ul className="p-4 space-y-6">
                         <li onClick={toggleDrawer}><a href="/">Home</a></li>
                         <li onClick={toggleDrawer}>About Us</li>
-                        <li onClick={toggleDrawer}>Courses</li>
+                        <li onClick={toggleDrawer}><a href="/our-courses">Courses</a></li>
 
                         <li onClick={toggleDrawer}><a href="/blogs">Blogs</a></li>
 

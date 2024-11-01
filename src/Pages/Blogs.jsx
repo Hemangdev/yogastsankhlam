@@ -80,10 +80,6 @@ const Blogs = ({ tempBlogsData }) => {
                         ))
                     }
                 </div>
-
-
-
-
             </div>
 
         </>
