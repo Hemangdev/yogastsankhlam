@@ -5,7 +5,7 @@ import ComingSoon from '../assets/coming-soon.png'
 const Courses = () => {
     return (
         <>
-            <div className='max-w-[1540px] mx-auto p-4 h-screen'>
+            <div className='max-w-[1540px] mx-auto p-4 h-[80vh]'>
                 <img className='mt-[50px] rounded-2xl' src={ComingSoon} alt="coming-soon" />
 
                 <div className='mt-[50px]'>
