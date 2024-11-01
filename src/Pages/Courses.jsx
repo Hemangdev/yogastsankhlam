@@ -13,7 +13,7 @@ const Courses = () => {
     ];
     return (
         <>
-            <div className='max-w-[1540px] mx-auto p-4 h-[80vh]'>
+            <div className='max-w-[1540px] mx-auto p-4 h-full mt-[70px]'>
             <Breadcrumb paths={breadcrumbPaths} />
                 <img className='mt-[50px] rounded-2xl' src={ComingSoon} alt="coming-soon" />
 

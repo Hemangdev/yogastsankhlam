@@ -25,7 +25,7 @@ const Home = () => {
     return (
         <>
 
-            <div className='max-w-[1540px] mx-auto'>
+            <div className='max-w-[1540px] mx-auto mt-[50px]'>
 
                 <div className="relative w-full">
                     {/* Background Image */}
