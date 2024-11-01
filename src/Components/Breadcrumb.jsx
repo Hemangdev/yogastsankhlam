@@ -3,6 +3,7 @@
 // Breadcrumb.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Breadcrumb = ({ paths }) => {
   return (
@@ -10,7 +11,7 @@ const Breadcrumb = ({ paths }) => {
       <ol className="flex">
         {paths.map((path, index) => (
           <li key={index} className="flex items-center">
-            {index > 0 && <span className="mx-2">/</span>}
+            {index > 0 && <span className="mx-2"><MdKeyboardArrowRight/></span>}
             {index < paths.length - 1 ? (
               <Link to={path.href} className="text-blue-500 hover:underline">
                 {path.label}

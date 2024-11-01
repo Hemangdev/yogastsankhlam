@@ -1,11 +1,23 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import Breadcrumb from './Breadcrumb';
 import { CiShare1 } from "react-icons/ci";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { useParams } from 'react-router-dom';
 
-const BlogDetails = () => {
+const BlogDetails = ({ blogs }) => {
+
+
+    const { id } = useParams();
+    const blog = blogs.find((item) => item.id === parseInt(id, 10));
+
+    if (!blog) {
+        return <p>Blog Not Found</p>;
+    }
+
+
     const breadcrumbPaths = [
         { href: '/', label: 'Home' },
         { href: '/blogs', label: 'Blogs' },
@@ -16,19 +28,19 @@ const BlogDetails = () => {
             <div className='max-w-[1540px] mx-auto p-4'>
                 <Breadcrumb paths={breadcrumbPaths} />
                 <div className='mainDiv'>
-                    <h1 className='text-black font-bold text-[30px]'>How to Be Happy: 27 Habits to Add to Your Routine</h1>
+                    <h1 className='text-black font-bold text-[30px] md:text-[48px]'>{blog.title}</h1>
 
                     <div className='w-full flex justify-between my-5'>
-                        <div className='userDiv font-bold'>Dipanita Biswas</div>
+                        <div className='userDiv font-bold'>{blog.author}</div>
 
-                        <div className='social-connect flex gap-2'> 
-                            <FaWhatsapp  size={20}/>
-                            <FaInstagram size={20}/>
-                            <CiShare1 size={20}/>
+                        <div className='social-connect flex gap-2'>
+                            <FaWhatsapp size={20} />
+                            <FaInstagram size={20} />
+                            <CiShare1 size={20} />
                         </div>
                     </div>
                     <div className='imgDiv'>
-                        <img className='rounded-2xl my-3' src="https://images.pexels.com/photos/806427/pexels-photo-806427.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+                        <img className='rounded-2xl my-3' src= {blog.img} alt="" />
                     </div>
 
                     <div className='content-div'>
