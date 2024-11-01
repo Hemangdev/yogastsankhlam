@@ -5,6 +5,7 @@ import Header from './Header&Footer/Header'
 import Footer from './Header&Footer/Footer'
 import Home from './Pages/Home'
 import Blogs from './Pages/Blogs'
+import BlogDetails from './Components/BlogDetails'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/blogs' element={<Blogs />} />
+          <Route path='/blog-details' element={<BlogDetails/>}/>
 
         </Routes>
         <Footer />

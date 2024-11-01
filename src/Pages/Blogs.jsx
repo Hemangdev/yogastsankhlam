@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import Breadcrumb from '../Components/Breadcrumb';
+import { Link } from 'react-router-dom';
 
 
 const tempBlogsData = [
@@ -12,7 +13,8 @@ const tempBlogsData = [
         desc: 'Sophia Mesabhi is a Senior Partner at Untitled Ventures. Frankie Sullivan sat down with her to chat about sustainable and profitable growth...',
         img: 'https://images.pexels.com/photos/317157/pexels-photo-317157.jpeg?auto=compress&cs=tinysrgb&w=600',
         createdAt: '01 November 2024',
-        author: 'Dipanita Biswas'
+        author: 'Dipanita Biswas',
+        redirectTo: '/blog-details'
 
     },
     {
@@ -21,7 +23,8 @@ const tempBlogsData = [
         desc: 'Sophia Mesabhi is a Senior Partner at Untitled Ventures. Frankie Sullivan sat down with her to chat about sustainable and profitable growth...',
         img: 'https://images.pexels.com/photos/806427/pexels-photo-806427.jpeg?auto=compress&cs=tinysrgb&w=600',
         createdAt: '01 November 2024',
-        author: 'Dipanita Biswas'
+        author: 'Dipanita Biswas',
+        redirectTo: '/blog-details'
 
     },
     {
@@ -30,7 +33,8 @@ const tempBlogsData = [
         desc: 'Sophia Mesabhi is a Senior Partner at Untitled Ventures. Frankie Sullivan sat down with her to chat about sustainable and profitable growth...',
         img: 'https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=600',
         createdAt: '01 November 2024',
-        author: 'Dipanita Biswas'
+        author: 'Dipanita Biswas',
+        redirectTo: '/blog-details'
 
     },
 ]
@@ -65,6 +69,7 @@ const Blogs = () => {
                             desc={item.desc}
                             createdAt={item.createdAt}
                             author={item.author}
+                            redirect={item.redirectTo}
                         />
                     })
                 }
@@ -79,10 +84,10 @@ const Blogs = () => {
 export default Blogs
 
 
-const BlogBody = ({ title, img, createdAt, author, desc }) => {
+const BlogBody = ({ title, img, createdAt, author, desc, redirect }) => {
 
     return (
-        <>
+        <><Link to={redirect}> 
             <div className='w-full my-[30px]'>
                 <img className='rounded-t-2xl' src={img} alt="" />
                 <h1 className='text-[23px] text-[#3D211A] font-semibold leading-[35px]'>{title}</h1>
@@ -97,6 +102,7 @@ const BlogBody = ({ title, img, createdAt, author, desc }) => {
                     <p className='text-[#3D211A] text-[16px] font-bold'>{createdAt}</p>
                 </div>
             </div>
+        </Link>
         </>
     )
 }
