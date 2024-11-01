@@ -25,7 +25,7 @@ const BlogDetails = ({ blogs }) => {
     ];
     return (
         <>
-            <div className='max-w-[1540px] mx-auto p-4'>
+            <div className='max-w-[1540px] mx-auto p-4 mt-[70px]'>
                 <Breadcrumb paths={breadcrumbPaths} />
                 <div className='mainDiv'>
                     <h1 className='text-black font-bold text-[30px] md:text-[48px]'>{blog.title}</h1>
