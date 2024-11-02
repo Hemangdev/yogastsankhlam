@@ -15,7 +15,7 @@ const Header = () => {
         <>
             <div className="fixed top-0 left-0 w-full z-10 bg-[#fff7eb] shadow-md">
                 <div className="max-w-[1540px] mx-auto p-4">
-                    <div className="flex items-center justify-between"> 
+                    <div className="flex items-center justify-between">
                         {/* Logo Section */}
                         <div className="logo-div">
                             <h1 className="text-black uppercase font-bold"><a href="/">Yogastsankhlam.</a></h1>
@@ -24,8 +24,12 @@ const Header = () => {
                         {/* Desktop Menu */}
                         <div className="hidden md:flex">
                             <ul className="flex items-center gap-8">
-                                <li>Home</li>
-                                <li>About Us</li>
+                                <Link to={'/'}>
+                                    <li>Home</li>
+                                </Link>
+                                <Link to={'/about-us'}>
+                                    <li>About Us</li>
+                                </Link>
                                 <Link to={'/our-courses'}>
                                     <li>Courses</li>
                                 </Link>
@@ -67,7 +71,7 @@ const Header = () => {
                         </div>
                         <ul className="p-4 space-y-6">
                             <li onClick={toggleDrawer}><a href="/">Home</a></li>
-                            <li onClick={toggleDrawer}>About Us</li>
+                            <li onClick={toggleDrawer}><a href="/about-us">About Us</a></li>
                             <li onClick={toggleDrawer}><a href="/our-courses">Courses</a></li>
                             <li onClick={toggleDrawer}><a href="/blogs">Blogs</a></li>
                             <li onClick={toggleDrawer}><a href="/contact">Contact</a></li>

@@ -9,6 +9,7 @@ import BlogDetails from './Components/BlogDetails'
 import ScrollToTop from './Utils/ScrollToTop'
 import Courses from './Pages/Courses'
 import Contact from './Pages/Contact'
+import AboutUs from './Pages/AboutUs'
 
 
 
@@ -57,6 +58,7 @@ const App = () => {
             <Route path="/blogs/:id" element={<BlogDetails blogs={tempBlogsData} />} />
             <Route path='/our-courses' element={<Courses/>} />
             <Route path='/contact' element={<Contact/>} />
+            <Route path='/about-us' element={<AboutUs/>} />
 
           </Routes>
           <Footer />
