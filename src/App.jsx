@@ -11,6 +11,8 @@ import Courses from './Pages/Courses'
 import Contact from './Pages/Contact'
 import AboutUs from './Pages/AboutUs'
 import LoginPage from './admin/auth/LoginPage'
+import ProtectedRoute from './Middleware/ProtectedRoute'
+import Dashboard from './admin/Dashboard'
 
 
 
@@ -51,40 +53,48 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-      <ScrollToTop>
-        <Routes>
-          {/* Public Routes with Header and Footer */}
-          <Route
-            element={
-              <>
-                <Header />
-                <Outlet />
-                <Footer />
-              </>
-            }
-          >
-            <Route path="/" element={<Home />} />
-            <Route path="/blogs" element={<Blogs tempBlogsData={tempBlogsData} />} />
-            <Route path="/blogs/:id" element={<BlogDetails blogs={tempBlogsData} />} />
-            <Route path="/our-courses" element={<Courses />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about-us" element={<AboutUs />} />
-          </Route>
+        <ScrollToTop>
+          <Routes>
+            {/* Public Routes with Header and Footer */}
+            <Route
+              element={
+                <>
+                  <Header />
+                  <Outlet />
+                  <Footer />
+                </>
+              }
+            >
+              <Route path="/" element={<Home />} />
+              <Route path="/blogs" element={<Blogs tempBlogsData={tempBlogsData} />} />
+              <Route path="/blogs/:id" element={<BlogDetails blogs={tempBlogsData} />} />
+              <Route path="/our-courses" element={<Courses />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route
+                path="/admin/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
 
-          {/* Auth Routes without Header and Footer */}
-          <Route
-            element={
-              <>
-                <Outlet />
-              </>
-            }
-          >
-            <Route path="/admin" element={<LoginPage />} />
-            {/* <Route path="/signup" element={<Signup />} /> */}
-          </Route>
-        </Routes>
-      </ScrollToTop>
-    </BrowserRouter>
+            {/* Auth Routes without Header and Footer */}
+            <Route
+              element={
+                <>
+                  <Outlet />
+                </>
+              }
+            >
+              <Route path="/admin" element={<LoginPage />} />
+              {/* <Route path="/signup" element={<Signup />} /> */}
+            </Route>
+          </Routes>
+        </ScrollToTop>
+      </BrowserRouter>
 
     </>
   )
