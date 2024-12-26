@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import GeneralSettings from './GeneralSettings';
 import DashboardHome from './DashboardHome';
 import ProfileRoutes from './ProfileRoutes';
+import BlogIndex from './BlogIndex';
 
 const Dashboard = () => {
     const [activeTab, setActiveTab] = useState('Dashboard');
@@ -19,7 +20,7 @@ const Dashboard = () => {
             case 'General Settings':
                 return <div><GeneralSettings /></div>;
             case 'Blogs':
-                return <div>Blogs content goes here...</div>;
+                return <div><BlogIndex/></div>;
             case 'Gallery':
                 return <div>Gallery content goes here...</div>;
             case 'Banner':
@@ -72,7 +73,7 @@ const Dashboard = () => {
                 </button>
 
                 <h1 className="text-3xl font-bold text-gray-800 mb-4">{activeTab}</h1>
-                <div className="p-4 bg-white shadow rounded-md">{renderPanel()}</div>
+                <div className=" bg-white shadow rounded-md">{renderPanel()}</div>
             </div>
         </div>
     );

@@ -3,8 +3,8 @@ import React from 'react';
 
 const ProfileRoutes = () => {
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Profile</h1>
+    <div className=" bg-gray-100 min-h-screen">
+      
       <form className="grid grid-cols-1 gap-6 bg-white p-6 rounded-md shadow md:grid-cols-2">
         {/* Profile Name */}
         <div>
