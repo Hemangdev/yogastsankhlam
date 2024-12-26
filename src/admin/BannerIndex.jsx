@@ -19,7 +19,7 @@ const BannerIndex = () => {
     ];
 
     return (
-        <div className=" sm:p-6 bg-gray-100 min-h-screen">
+        <div className=" bg-gray-100 min-h-screen">
             <div className="overflow-x-auto bg-white rounded-md shadow">
                 <table className="min-w-full table-auto border-collapse border border-gray-200">
                     <thead className="bg-gray-100">

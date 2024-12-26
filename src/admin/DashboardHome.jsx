@@ -3,7 +3,7 @@ import React from 'react'
 
 const DashboardHome = () => {
   return (
-    <h1>Welcome Admin,</h1>
+    <h1>Welcome back Dipanita,</h1>
   )
 }
 

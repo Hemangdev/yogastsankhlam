@@ -12,7 +12,7 @@ const Dashboard = () => {
     const [activeTab, setActiveTab] = useState('Dashboard');
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-    const tabs = ['Dashboard', 'General Settings', 'Blogs','Add Blog', 'Gallery', 'Banner','Add Banner', 'Profile',];
+    const tabs = ['Dashboard', 'General Settings', 'Blogs','Add Blog', 'Banner','Add Banner', 'Profile',];
 
     const renderPanel = () => {
         switch (activeTab) {
@@ -25,9 +25,7 @@ const Dashboard = () => {
             case 'Blogs':
                 return <div><BlogIndex/></div>;
             case 'Add Blog':
-                return <div><AddBlog/></div>    
-            case 'Gallery':
-                return <div>Gallery content goes here...</div>;
+                return <div><AddBlog/></div>;
             case 'Banner':
                 return <div><BannerIndex/></div>;
             case 'Add Banner' : 
@@ -41,10 +39,10 @@ const Dashboard = () => {
         <div className="min-h-screen flex bg-gray-100">
             {/* Sidebar */}
             <div
-                className={`fixed inset-0 z-50 bg-white shadow-md transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-                    } transition-transform md:relative md:translate-x-0 md:w-1/6 h-screen`}
+                className={`fixed inset-0 z-50 bg-[#fff7eb] shadow-md transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                    } transition-transform md:relative md:translate-x-0 md:w-1/4 h-screen`}
             >
-                <h2 className="text-lg font-bold text-gray-800 p-4">Admin Dashboard</h2>
+                <h2 className="text-lg font-bold text-gray-800 p-4">Yogastsankhlam</h2>
                 <ul className="space-y-2">
                     {tabs.map((tab) => (
                         <li
@@ -80,7 +78,7 @@ const Dashboard = () => {
                 </button>
 
                 <h1 className="text-3xl font-bold text-gray-800 mb-4">{activeTab}</h1>
-                <div className=" bg-white shadow rounded-md">{renderPanel()}</div>
+                <div className="">{renderPanel()}</div>
             </div>
         </div>
     );
