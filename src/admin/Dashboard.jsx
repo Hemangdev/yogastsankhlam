@@ -4,12 +4,15 @@ import GeneralSettings from './GeneralSettings';
 import DashboardHome from './DashboardHome';
 import ProfileRoutes from './ProfileRoutes';
 import BlogIndex from './BlogIndex';
+import AddBlog from './AddBlog';
+import BannerIndex from './BannerIndex';
+import AddBanner from './AddBanner';
 
 const Dashboard = () => {
     const [activeTab, setActiveTab] = useState('Dashboard');
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-    const tabs = ['Dashboard', 'General Settings', 'Blogs', 'Gallery', 'Banner', 'Profile'];
+    const tabs = ['Dashboard', 'General Settings', 'Blogs','Add Blog', 'Gallery', 'Banner','Add Banner', 'Profile',];
 
     const renderPanel = () => {
         switch (activeTab) {
@@ -21,10 +24,14 @@ const Dashboard = () => {
                 return <div><GeneralSettings /></div>;
             case 'Blogs':
                 return <div><BlogIndex/></div>;
+            case 'Add Blog':
+                return <div><AddBlog/></div>    
             case 'Gallery':
                 return <div>Gallery content goes here...</div>;
             case 'Banner':
-                return <div>Banner content goes here...</div>;
+                return <div><BannerIndex/></div>;
+            case 'Add Banner' : 
+                return <div><AddBanner/></div>;    
             default:
                 return <div>Select a tab to view its content.</div>;
         }

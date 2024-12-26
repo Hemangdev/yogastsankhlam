@@ -13,6 +13,7 @@ import AboutUs from './Pages/AboutUs'
 import LoginPage from './admin/auth/LoginPage'
 import ProtectedRoute from './Middleware/ProtectedRoute'
 import Dashboard from './admin/Dashboard'
+import AddBlog from './admin/AddBlog'
 
 
 
@@ -82,7 +83,7 @@ const App = () => {
               }
             >
               <Route path="/admin" element={<LoginPage />} />
-              <Route path='/admin/dashboard' element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
+              <Route path='/admin/dashboard' element={<ProtectedRoute><Dashboard/></ProtectedRoute>} /> 
               {/* <Route path="/signup" element={<Signup />} /> */}
             </Route>
           </Routes>
