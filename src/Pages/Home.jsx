@@ -32,7 +32,7 @@ const Home = () => {
                     <img
                         style={{ filter: 'brightness(50%)' }}
                         className="max-w-[100%] w-full"
-                        src={banner}
+                        src={"https://placehold.co/1600x900"}
                         alt=""
                     />
 

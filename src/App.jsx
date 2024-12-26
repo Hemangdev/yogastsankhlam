@@ -71,14 +71,6 @@ const App = () => {
               <Route path="/our-courses" element={<Courses />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/about-us" element={<AboutUs />} />
-              <Route
-                path="/admin/dashboard"
-                element={
-                  <ProtectedRoute>
-                    <Dashboard />
-                  </ProtectedRoute>
-                }
-              />
             </Route>
 
             {/* Auth Routes without Header and Footer */}
@@ -90,6 +82,7 @@ const App = () => {
               }
             >
               <Route path="/admin" element={<LoginPage />} />
+              <Route path='/admin/dashboard' element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
               {/* <Route path="/signup" element={<Signup />} /> */}
             </Route>
           </Routes>

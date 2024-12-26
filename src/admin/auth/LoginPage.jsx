@@ -12,7 +12,7 @@ const LoginPage = () => {
         e.preventDefault();
 
         // Mock authentication logic
-        if (username === "admin" && password === "Totoginu@2903") {
+        if (username === "admin" && password === "123456") {
             // Save mock token to local storage
             localStorage.setItem("token", "mockToken123");
             navigate("/admin/dashboard"); // Redirect to the admin dashboard
@@ -25,7 +25,7 @@ const LoginPage = () => {
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
                 <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-                    Welcome Back Dipanita, Let's Go!
+                    Welcome Back, Let's Go!
                 </h2>
                 {/* Display error message if login fails */}
                 {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
