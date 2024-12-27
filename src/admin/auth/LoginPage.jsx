@@ -20,7 +20,7 @@ const LoginPage = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:3000/auth/admin", // Correct backend URL for the /admin route
+                "https://yogastsankhlam-backend.vercel.app/auth/admin", // Correct backend URL for the /admin route
                 { username, password }, // Send username and password in the request body
                 { withCredentials: true } // Include cookies for session handling
             );
