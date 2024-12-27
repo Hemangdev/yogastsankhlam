@@ -1,9 +1,13 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { IoEyeSharp } from "react-icons/io5";
 import { IoEyeOffSharp } from "react-icons/io5";
+
+const devServer = process.env.DEVELOPMENT_SERVER_URL
+const liveServer = process.env.LIVE_SERVER_URL
 
 const LoginPage = () => {
     const [username, setUsername] = useState("");
@@ -20,7 +24,7 @@ const LoginPage = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "https://yogastsankhlam-backend.vercel.app/auth/admin", // Correct backend URL for the /admin route
+                `${liveServer}/auth/admin`, // Correct backend URL for the /admin route
                 { username, password }, // Send username and password in the request body
                 { withCredentials: true } // Include cookies for session handling
             );

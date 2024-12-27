@@ -1,9 +1,11 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-
+const devServer = process.env.DEVELOPMENT_SERVER_URL
+const liveServer = process.env.LIVE_SERVER_URL
 
 const ProfileRoutes = () => {
 
@@ -12,7 +14,7 @@ const ProfileRoutes = () => {
 
     const handleLogout = async () => {
         try {
-            const response = await axios.get("https://yogastsankhlam-backend.vercel.app/auth/logout", {
+            const response = await axios.get(`${liveServer}/auth/logout`, {
                 withCredentials: true, // Include cookies in the request
             });
     
