@@ -14,7 +14,7 @@ const ProfileRoutes = () => {
 
     const handleLogout = async () => {
         try {
-            const response = await axios.get(`${liveServer}/auth/logout`, {
+            const response = await axios.get("https://yogastsankhlam-backend.vercel.app/auth/logout", {
                 withCredentials: true, // Include cookies in the request
             });
     
