@@ -68,7 +68,7 @@ const Dashboard = () => {
             </div>
 
             {/* Main Content Area */}
-            <div className="flex-1 p-6">
+            <div className="flex-1 p-6 w-full">
                 {/* Mobile Toggle Button */}
                 <button
                     className="md:hidden p-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300 mb-4"

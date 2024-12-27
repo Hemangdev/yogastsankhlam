@@ -22,7 +22,7 @@ const DashboardHome = () => {
   ];
 
   return (
-    <div className="p-4 md:p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6 overflow-x-hidden">
       <h1 className="text-3xl font-bold mb-4 text-center md:text-left">Welcome back, Dipanita!</h1>
 
       {/* Cards Section */}
@@ -53,28 +53,32 @@ const DashboardHome = () => {
         {/* Line Chart: Website Traffic */}
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-center mb-4">Website Traffic (Monthly)</h2>
-          <ResponsiveContainer width="100%" height={250}>
-            <LineChart data={lineData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Line type="monotone" dataKey="traffic" stroke="#3b82f6" />
-            </LineChart>
-          </ResponsiveContainer>
+          <div className="w-full overflow-hidden">
+            <ResponsiveContainer width="100%" height={250}>
+              <LineChart data={lineData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="traffic" stroke="#3b82f6" />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
         </div>
 
         {/* Pie Chart: Course Completion */}
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-center mb-4">Course Completion</h2>
-          <ResponsiveContainer width="100%" height={250}>
-            <PieChart>
-              <Pie data={pieData} dataKey="value" nameKey="name" outerRadius={80} fill="#10b981" label />
-              <Tooltip />
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
+          <div className="w-full overflow-hidden">
+            <ResponsiveContainer width="100%" height={250}>
+              <PieChart>
+                <Pie data={pieData} dataKey="value" nameKey="name" outerRadius={80} fill="#10b981" label />
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
 
