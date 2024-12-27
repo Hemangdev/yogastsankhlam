@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const LoginPage = () => {
     const [username, setUsername] = useState("");
@@ -8,25 +9,35 @@ const LoginPage = () => {
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-
-        // Mock authentication logic
-        if (username === "admin" && password === "123456") {
-            // Save mock token to local storage
-            localStorage.setItem("token", "mockToken123");
-            navigate("/admin/dashboard"); // Redirect to the admin dashboard
-        } else {
-            setError("Invalid username or password");
+        try {
+            const response = await axios.post(
+                "http://localhost:3000/auth/admin", // Correct backend URL for the /admin route
+                { username, password }, // Send username and password in the request body
+                { withCredentials: true } // Include cookies for session handling
+            );
+    
+            if (response.data.success) {
+                // Save session or token if needed
+                localStorage.setItem("token", "mockToken123"); // Optional: adjust based on backend logic
+                navigate("/admin/dashboard"); // Redirect to the admin dashboard
+            } else {
+                setError(response.data.message); // Display backend error message
+            }
+        } catch (error) {
+            setError("An error occurred while logging in");
+            console.error("Login error:", error);
         }
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
-                <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-                    Welcome Back, Let's Go!
+                <h2 className="text-4xl font-bold text-center text-gray-800 mb-3">
+                    AdminLogin
                 </h2>
+                <p className="text-center text-gray-900 mb-3">Sign in to start your session</p>
                 {/* Display error message if login fails */}
                 {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
                 <form onSubmit={handleLogin}>

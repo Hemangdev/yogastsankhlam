@@ -13,7 +13,7 @@ import AboutUs from './Pages/AboutUs'
 import LoginPage from './admin/auth/LoginPage'
 import ProtectedRoute from './Middleware/ProtectedRoute'
 import Dashboard from './admin/Dashboard'
-import AddBlog from './admin/AddBlog'
+import Error404 from './Pages/Error404'
 
 
 
@@ -54,41 +54,43 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <ScrollToTop>
-          <Routes>
-            {/* Public Routes with Header and Footer */}
-            <Route
-              element={
-                <>
-                  <Header />
-                  <Outlet />
-                  <Footer />
-                </>
-              }
-            >
-              <Route path="/" element={<Home />} />
-              <Route path="/blogs" element={<Blogs tempBlogsData={tempBlogsData} />} />
-              <Route path="/blogs/:id" element={<BlogDetails blogs={tempBlogsData} />} />
-              <Route path="/our-courses" element={<Courses />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/about-us" element={<AboutUs />} />
-            </Route>
+  <ScrollToTop>
+    <Routes>
+      {/* Public Routes with Header and Footer */}
+      <Route
+        element={
+          <>
+            <Header />
+            <Outlet />
+            <Footer />
+          </>
+        }
+      >
+        <Route path="/" element={<Home />} />
+        <Route path="/blogs" element={<Blogs tempBlogsData={tempBlogsData} />} />
+        <Route path="/blogs/:id" element={<BlogDetails blogs={tempBlogsData} />} />
+        <Route path="/our-courses" element={<Courses />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about-us" element={<AboutUs />} />
+      </Route>
 
-            {/* Auth Routes without Header and Footer */}
-            <Route
-              element={
-                <>
-                  <Outlet />
-                </>
-              }
-            >
-              <Route path="/admin" element={<LoginPage />} />
-              <Route path='/admin/dashboard' element={<ProtectedRoute><Dashboard/></ProtectedRoute>} /> 
-              {/* <Route path="/signup" element={<Signup />} /> */}
-            </Route>
-          </Routes>
-        </ScrollToTop>
-      </BrowserRouter>
+      {/* Auth Routes without Header and Footer */}
+      <Route
+        element={
+          <>
+            <Outlet />
+          </>
+        }
+      >
+        <Route path="/admin" element={<LoginPage />} />
+        <Route path='/admin/dashboard' element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
+      </Route>
+
+      {/* Catch-all route for undefined paths */}
+      <Route path="*" element={<Error404 />} />
+    </Routes>
+  </ScrollToTop>
+</BrowserRouter>
 
     </>
   )

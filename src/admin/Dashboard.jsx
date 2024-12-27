@@ -40,7 +40,7 @@ const Dashboard = () => {
             {/* Sidebar */}
             <div
                 className={`fixed inset-0 z-50 bg-[#fff7eb] shadow-md transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-                    } transition-transform md:relative md:translate-x-0 md:w-1/4 h-screen`}
+                    } transition-transform md:relative md:translate-x-0 md:w-1/4 min-h-screen`}
             >
                 <h2 className="text-lg font-bold text-gray-800 p-4">Yogastsankhlam</h2>
                 <ul className="space-y-2">
