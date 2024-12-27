@@ -2,12 +2,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { IoEyeSharp } from "react-icons/io5";
+import { IoEyeOffSharp } from "react-icons/io5";
 
 const LoginPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -72,23 +79,36 @@ const LoginPage = () => {
                         />
                     </div>
                     {/* Password Field */}
-                    <div className="mb-4">
+                    <div className="mb-4 relative">
                         <label
                             htmlFor="password"
                             className="block text-gray-700 font-medium mb-2"
                         >
                             Password
                         </label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            placeholder="Enter your password"
-                            required
-                        />
+                        <div className="relative">
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                id="password"
+                                name="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                placeholder="Enter your password"
+                                required
+                            />
+                            <button
+                                type="button"
+                                onClick={togglePasswordVisibility}
+                                className="absolute inset-y-0 right-3 flex items-center text-gray-600 hover:text-gray-800"
+                            >
+                                {showPassword ? (
+                                    <IoEyeSharp />
+                                ) : (
+                                    <IoEyeOffSharp />
+                                )}
+                            </button>
+                        </div>
                     </div>
                     {/* Remember Me and Forgot Password Links */}
                     <div className="flex items-center justify-between mb-4">
