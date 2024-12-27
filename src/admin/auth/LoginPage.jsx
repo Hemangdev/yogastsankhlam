@@ -17,7 +17,7 @@ const LoginPage = () => {
                 { username, password }, // Send username and password in the request body
                 { withCredentials: true } // Include cookies for session handling
             );
-    
+
             if (response.data.success) {
                 // Save session or token if needed
                 localStorage.setItem("token", "mockToken123"); // Optional: adjust based on backend logic
@@ -32,7 +32,18 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-[#fff7eb] px-4 sm:px-8">
+            {/* Heading Section */}
+            <div className="text-center mb-6">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#3d211a] mb-2">
+                    Yogastsankhlam - Yoga & Meditation Studio
+                </h1>
+                <p className="text-sm sm:text-xl text-[#63948b]">
+                    Rejuvenate your mind, body, and soul with the power of yoga and meditation.
+                </p>
+            </div>
+
+            {/* Login Form */}
             <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
                 <h2 className="text-4xl font-bold text-center text-gray-800 mb-3">
                     AdminLogin
@@ -105,6 +116,7 @@ const LoginPage = () => {
                 </form>
             </div>
         </div>
+
     );
 };
 
