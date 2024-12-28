@@ -55,7 +55,7 @@ const Home = () => {
                         {bannerImages.map((image, index) => (
                             <SwiperSlide key={index}>
                                 <img
-                                    style={{ filter: "brightness(50%)" }}
+                                    style={{ filter: "brightness(80%)" }}
                                     className="max-w-[100%] w-full h-auto object-cover"
                                     src={image}
                                     alt={`Banner ${index + 1}`}
