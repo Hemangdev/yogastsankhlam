@@ -1,11 +1,11 @@
-/* eslint-disable no-undef */
+ 
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-const devServer = process.env.DEVELOPMENT_SERVER_URL
-const liveServer = process.env.LIVE_SERVER_URL
+// const devServer = process.env.DEVELOPMENT_SERVER_URL
+// const liveServer = process.env.LIVE_SERVER_URL
 
 const ProfileRoutes = () => {
 

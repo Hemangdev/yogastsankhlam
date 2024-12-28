@@ -9,24 +9,35 @@ body {
   background-color: #fff7eb;
 }
 
-.swiper-pagination {
-  display: flex !important;
-  justify-content: space-between;
-  align-items: center;
-  margin: 15px auto;
-  width: 100px !important;
-}
-
-.swiper-pagination span {
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
   cursor: pointer;
-  background-color: #b27f4a;
+  font-size: 40px;
+  color: #fff;
 }
 
-.swiper-pagination-bullet-active-active-main {}
+.custom-prev {
+  left: 20px;
+}
 
-  .swiper-pagination-bullet-active-main {
-  background-color: #705f5b;
+.custom-next {
+  right: 20px;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+  color: #cbb799; /* Change to your desired hover color */
+}
+
+.swiper-pagination-bullet {
+  background: #fff; /* Pagination dots color */
+  opacity: 0.8;
+}
+
+.swiper-pagination-bullet-active {
+  background: #cbb799; /* Active pagination dot color */
 }

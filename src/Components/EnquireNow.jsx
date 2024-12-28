@@ -5,15 +5,25 @@ import React from 'react'
 const EnquireNow = () => {
     return (
         <>
-            <div className='max-w-[1540px] mx-auto p-4 bg-[#63948b]'>
-                <div className='flex flex-col w-full gap-3 justify-start items-start  md:flex-row md:justify-between '>
-                    <p className='text-white font-bold text-[20px] md:text-[35px]'>Elevate Your Mind, Body & Spirit with Yogastsankhlam</p>
+            <div className="max-w-[1540px] mx-auto p-4 bg-[#63948b]">
+                <div className="flex flex-col w-full gap-4 justify-start items-start md:flex-row md:justify-between md:items-center">
+                    {/* Text Section */}
+                    <p className="text-white font-bold text-[20px] leading-[28px] md:text-[28px] md:leading-[40px] lg:text-[35px] lg:leading-[50px]">
+                        Elevate Your Mind, Body & Spirit with Yogastsankhlam
+                    </p>
 
-                    <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" className="px-2 py-2 md:px-4 md:py-2 rounded-sm bg-white text-[#63948b] font-semibold text-[10px] md:text-[20px]">
+                    {/* Button Section */}
+                    <button
+                        type="button"
+                        data-modal-target="authentication-modal"
+                        data-modal-toggle="authentication-modal"
+                        className="px-4 py-2 md:px-6 md:py-3 rounded-sm bg-white text-[#63948b] font-semibold text-[14px] md:text-[16px] lg:text-[20px]"
+                    >
                         EXPLORE MORE
                     </button>
                 </div>
             </div>
+
 
 
             {/* Popup modal */}

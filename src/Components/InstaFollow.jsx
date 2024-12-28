@@ -93,19 +93,7 @@ const InstaFollow = () => {
 
 
 
-            </Swiper>
-            {/* {
-                instaData.map((item, index) => (
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <InstagramEmbed url={item.url} width={350} />
-                    </div>
-                ))
-            } */}
-
-
-            {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <InstagramEmbed url="https://www.instagram.com/p/DBxu1ZKSQ1k/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" width={350} />
-            </div> */}
+            </Swiper> 
         </>
     )
 }

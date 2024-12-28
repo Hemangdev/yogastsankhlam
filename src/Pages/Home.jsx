@@ -5,12 +5,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import banner from '../assets/banner.png'
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa"; 
+import banner1 from '../assets/6.jpg'
+import banner2 from '../assets/1.jpg'
+import banner3 from '../assets/2.jpg'
+import banner4 from '../assets/3.jpg'
+import banner5 from '../assets/4.jpg'
+import banner6 from '../assets/5.jpg'
 import AboutImg from '../assets/about-us.png'
 import { motion } from 'framer-motion';
 import EnquireNow from '../Components/EnquireNow';
 import Mudras from '../Components/Mudras';
 import InstaFollow from '../Components/InstaFollow';
+
+
+// Dummy banner images
+const bannerImages = [
+     banner1,banner2,banner3,banner4,banner5,banner6
+];
 
 const Home = () => {
 
@@ -28,69 +40,75 @@ const Home = () => {
             <div className='max-w-[1540px] mx-auto mt-[50px]'>
 
                 <div className="relative w-full">
-                    {/* Background Image */}
-                    <img
-                        style={{ filter: 'brightness(50%)' }}
-                        className="max-w-[100%] w-full"
-                        src={banner}
-                        alt=""
-                    />
+                    {/* Swiper Slider */}
+                    <Swiper
+                        modules={[Navigation, Pagination, Autoplay]}
+                        navigation={{
+                            prevEl: ".custom-prev",
+                            nextEl: ".custom-next",
+                        }}
+                        pagination={{ clickable: true }}
+                        autoplay={{ delay: 3000 }}
+                        loop
+                        className="w-full"
+                    >
+                        {bannerImages.map((image, index) => (
+                            <SwiperSlide key={index}>
+                                <img
+                                    style={{ filter: "brightness(50%)" }}
+                                    className="max-w-[100%] w-full h-auto object-cover"
+                                    src={image}
+                                    alt={`Banner ${index + 1}`}
+                                />
+                            </SwiperSlide>
+                        ))}
+
+                        {/* Custom Navigation Buttons */}
+                        {/* <div className="custom-prev">
+                            <FaArrowCircleLeft />
+                        </div>
+                        <div className="custom-next">
+                            <FaArrowCircleRight />
+                        </div> */}
+                    </Swiper>
 
                     {/* Text Content */}
-                    <motion.div
-                        className="absolute top-[25px] md:top-[150px] right-0 w-[47%]"
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUpVariants}
-                    >
-                        <h1 className="text-white text-[25px] md:text-[75px] font-extrabold">
-                            YOGA &
-                        </h1>
-                        <h1 className="text-white text-[25px] md:text-[75px] font-extrabold mt-[-12px]">
-                            MEDITATION
-                        </h1>
-                        <h1 className="text-white text-[25px] md:text-[75px] font-extrabold mt-[-12px]">
-                            STUDIO
-                        </h1>
-
-                        <p className="text-[8px] md:text-[16px] text-white font-extralight">
-                            Yogastsankhlam is the best studio of the yoga and meditation,
-                            sharp your yoga with astsankhlam
-                        </p>
-
-                        <div className="mt-[16px] md:mt-[30px]">
-                            <button className="px-2 py-1 md:px-4 md:py-2 rounded-sm bg-[#63948b] text-white font-semibold text-[10px] md:text-[20px]">
-                                GET STARTED
-                            </button>
-                        </div>
-                    </motion.div>
                 </div>
 
                 {/*About Us Div  */}
 
-                <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    variants={fadeUpVariants}
-                >
-
-                    <div className='flex flex-col w-full items-center md:flex-row my-5 p-4'>
-                        <div className=' md:w-[50%]'>
-                            <h2 className='text-[32px] md:text-[60px] font-bold text-[#3D211A]'>About Us</h2>
-                            <p   className='text-[#725C4C] md:text-[26px] leading-[30px] md:leading-[50px]'>Yogastsankhlam is a premier studio dedicated to the art of yoga and meditation. We offer a holistic approach to sharpening your yoga practice through carefully curated sessions that blend traditional techniques with modern insights.</p>
-                            <div className='mt-[20px]'>
-                                <button className="px-2 py-2 md:px-4 md:py-2 rounded-sm bg-[#cbb799] text-white font-semibold text-[10px] md:text-[20px]">
+                <motion.div initial="hidden" animate="visible" variants={fadeUpVariants}>
+                    <div className="flex flex-col items-center w-full md:flex-row my-5 p-4 space-y-4 md:space-y-0 md:space-x-8">
+                        {/* Text Section */}
+                        <div className="w-full md:w-1/2 text-center md:text-left">
+                            <h2 className="text-[28px] md:text-[48px] lg:text-[60px] font-bold text-[#3D211A] leading-[1.2]">
+                                About Us
+                            </h2>
+                            <p className="text-[#725C4C] text-[14px] md:text-[18px] lg:text-[20px] leading-[1.5] md:leading-[1.8]">
+                                Yogastsankhlam is a premier studio dedicated to the art of yoga and
+                                meditation. We offer a holistic approach to sharpening your yoga
+                                practice through carefully curated sessions that blend traditional
+                                techniques with modern insights.
+                            </p>
+                            <div className="mt-[20px]">
+                                <button className="px-4 py-2 rounded-sm bg-[#cbb799] text-white font-semibold text-[14px] md:text-[16px] lg:text-[20px]">
                                     EXPLORE MORE
                                 </button>
                             </div>
                         </div>
-                        {/* Img Div */}
-                        <div className='mt-4'>
-                            <img className=' md:ml-[50%]' style={{ filter: 'brightness(50%)' }} src={AboutImg} alt="" />
-                        </div>
 
+                        {/* Image Section */}
+                        <div className="w-full md:w-1/2 flex justify-center">
+                            <img
+                                className="w-full h-auto max-w-[400px] md:max-w-full rounded-md object-cover"
+                                style={{ filter: "brightness(50%)" }}
+                                src={AboutImg}
+                                alt="About Us"
+                            />
+                        </div>
                     </div>
                 </motion.div>
+
 
 
                 <div>
@@ -111,24 +129,39 @@ const Home = () => {
                 </div>
 
                 {/* Book a Training Session */}
-                <div className='flex flex-col w-full items-center md:flex-row my-5 p-4'>
-                    <div className='md:w-[50%]'>
-                        <h2 className='text-[32px] md:text-[60px] font-bold text-[#3D211A]'>Traning Session</h2>
-                        <p className='text-[#725C4C] md:text-[26px] leading-[30px] md:leading-[50px]'>Yogastsankhlam is the best studio of the yoga
-                            and meditation, sharp your yoga with
-                            astsankhlam</p>
-                        <div className='mt-[20px]'>
-                            <button type="button" data-modal-target="authentication-modal-2" data-modal-toggle="authentication-modal-2" className="px-2 py-2 md:px-4 md:py-2 rounded-sm bg-[#cbb799] text-white font-semibold text-[10px] md:text-[20px]">
+                <div className="flex flex-col items-center w-full md:flex-row my-5 p-4 space-y-4 md:space-y-0 md:space-x-8">
+                    {/* Text Section */}
+                    <div className="w-full md:w-1/2 text-center md:text-left">
+                        <h2 className="text-[28px] md:text-[48px] lg:text-[60px] font-bold text-[#3D211A] leading-[1.2]">
+                            Training Session
+                        </h2>
+                        <p className="text-[#725C4C] text-[14px] md:text-[18px] lg:text-[20px] leading-[1.5] md:leading-[1.8]">
+                            Yogastsankhlam is the best studio for yoga and meditation. Sharpen your
+                            yoga practice with Astsankhlam.
+                        </p>
+                        <div className="mt-[20px]">
+                            <button
+                                type="button"
+                                data-modal-target="authentication-modal-2"
+                                data-modal-toggle="authentication-modal-2"
+                                className="px-4 py-2 rounded-sm bg-[#cbb799] text-white font-semibold text-[14px] md:text-[16px] lg:text-[20px]"
+                            >
                                 BOOK A DEMO
                             </button>
                         </div>
                     </div>
-                    {/* Img Div */}
-                    <div className='mt-4'>
-                        <img className=' md:ml-[50%]' style={{ filter: 'brightness(50%)' }} src={AboutImg} alt="" />
-                    </div>
 
+                    {/* Image Section */}
+                    <div className="w-full md:w-1/2 flex justify-center">
+                        <img
+                            className="w-full h-auto max-w-[400px] md:max-w-full rounded-md object-cover"
+                            style={{ filter: "brightness(50%)" }}
+                            src={AboutImg}
+                            alt="Training Session"
+                        />
+                    </div>
                 </div>
+
                 {/* <!-- Main modal --> */}
                 <div id="authentication-modal-2" tabindex="-1" aria-hidden="true" className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                     <div className="relative p-4 w-full max-w-md max-h-full">
@@ -181,7 +214,7 @@ const Home = () => {
                         <span className='text-white font-semibold'>@yog_astsankhlam</span>
                     </div>
 
-                    <div className='mt-5'> 
+                    <div className='mt-5'>
                         <InstaFollow />
                     </div>
 

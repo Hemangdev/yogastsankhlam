@@ -18,45 +18,47 @@ const Header = () => {
                     <div className="flex items-center justify-between">
                         {/* Logo Section */}
                         <div className="logo-div">
-                            <h1 className="text-black uppercase font-bold"><a href="/">Yogastsankhlam.</a></h1>
+                            <h1 className="text-black uppercase font-bold">
+                                <a href="/">Yogastsankhlam.</a>
+                            </h1>
                         </div>
 
-                        {/* Desktop Menu */}
-                        <div className="hidden md:flex">
-                            <ul className="flex items-center gap-8">
+                        {/* Desktop and Tablet Menu */}
+                        <div className="hidden lg:flex">
+                            <ul className="flex items-center gap-6 md:gap-8">
                                 <Link to={'/'}>
-                                    <li>Home</li>
+                                    <li className="text-black hover:text-[#705f5b]">Home</li>
                                 </Link>
                                 <Link to={'/about-us'}>
-                                    <li>About Us</li>
+                                    <li className="text-black hover:text-[#705f5b]">About Us</li>
                                 </Link>
                                 <Link to={'/our-courses'}>
-                                    <li>Courses</li>
+                                    <li className="text-black hover:text-[#705f5b]">Courses</li>
                                 </Link>
                                 <Link to={'/blogs'}>
-                                    <li>Blogs</li>
+                                    <li className="text-black hover:text-[#705f5b]">Blogs</li>
                                 </Link>
                                 <Link to={'/contact'}>
-                                    <li>Contact</li>
+                                    <li className="text-black hover:text-[#705f5b]">Contact</li>
                                 </Link>
-                                <li>Gallery</li>
+                                <li className="text-black hover:text-[#705f5b]">Gallery</li>
                             </ul>
                         </div>
 
-                        {/* Contact Button */}
-                        <div className="hidden md:block">
-                            <button className="px-4 py-2 bg-[#705f5b] text-white text-[16px] rounded-sm">
+                        {/* Contact Button for Tablet and Desktop */}
+                        <div className="hidden lg:block">
+                            <button className="px-4 py-2 bg-[#705f5b] text-white text-[14px] md:text-[16px] rounded-sm">
                                 Contact Us
                             </button>
                         </div>
 
-                        {/* Hamburger Menu for Mobile */}
-                        <div className="md:hidden">
+                        {/* Hamburger Menu for Mobile and Tablet */}
+                        <div className="lg:hidden">
                             <FiMenu size={28} onClick={toggleDrawer} className="cursor-pointer" />
                         </div>
                     </div>
 
-                    {/* Mobile Drawer */}
+                    {/* Mobile and Tablet Drawer */}
                     <div
                         className={`fixed top-0 right-0 h-full w-[75%] bg-[#fff7eb] z-[9] shadow-lg transform transition-transform duration-300 ${isDrawerOpen ? 'translate-x-0' : 'translate-x-full'
                             }`}
@@ -69,7 +71,7 @@ const Header = () => {
                                 className="cursor-pointer"
                             />
                         </div>
-                        <ul className="p-4 space-y-6">
+                        <ul className="p-4 space-y-6 text-black">
                             <li onClick={toggleDrawer}><a href="/">Home</a></li>
                             <li onClick={toggleDrawer}><a href="/about-us">About Us</a></li>
                             <li onClick={toggleDrawer}><a href="/our-courses">Courses</a></li>
@@ -80,6 +82,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+
 
         </>
     )
