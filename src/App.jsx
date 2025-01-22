@@ -21,6 +21,8 @@ import BlogIndex from './admin/BlogIndex'
 import GeneralSettings from './admin/GeneralSettings'
 import ProfileRoutes from './admin/ProfileRoutes'
 import Layout from './admin/Layout'
+import AddCategory from './admin/AddCategory'
+import AllCategories from './admin/AllCategories'
 
 
 
@@ -100,6 +102,8 @@ const App = () => {
                 <Route path='/admin/dashboard/add-banners' element={<AddBanner/>} /> 
                 <Route path='/admin/dashboard/general-setting' element={<GeneralSettings/>} />
                 <Route path='/admin/dashboard/profile' element={<ProfileRoutes/>} />
+                <Route path='/admin/dashboard/add-blog-category' element={<AddCategory/>}/>
+                <Route path='/admin/dashboard/all-blog-category' element={<AllCategories/>}/>
               </Route>
               {/* Testing route */}
               <Route path='/admin/dev-dashboard' element={<Dashboard />} />

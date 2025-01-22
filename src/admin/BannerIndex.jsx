@@ -43,7 +43,7 @@ const BannerIndex = () => {
                 <h1 className='text-3xl sm:text-4xl md:text-5xl'>Banner</h1>
                 <Link to={'/admin/dashboard/add-banners'}>
                     <button className='px-4 py-2 bg-yellow-700 text-black font-bold rounded-md'>Add Banner</button>
-                </Link>
+                </Link>   
             </div>
 
             <div className=" bg-gray-100 min-h-screen">
