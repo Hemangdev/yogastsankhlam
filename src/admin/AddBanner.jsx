@@ -7,7 +7,7 @@ const AddBanner = () => {
         <>
             <div className="flex justify-between mx-2 my-2 mb-4 ">
                 <h1 className='text-2xl sm:text-4xl md:text-5xl'>Add Banner</h1>
-                <Link to={'/admin/dashboard/add-banners'}>
+                <Link to={'/admin/dashboard/all-banner'}>
                     <button className='px-4 py-2 bg-yellow-700 text-black font-bold rounded-md'>Banner List</button>
                 </Link>
             </div>
