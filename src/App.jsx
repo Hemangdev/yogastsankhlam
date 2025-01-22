@@ -14,6 +14,13 @@ import LoginPage from './admin/auth/LoginPage'
 import ProtectedRoute from './Middleware/ProtectedRoute'
 import Dashboard from './admin/Dashboard'
 import Error404 from './Pages/Error404'
+import AddBlog from './admin/AddBlog'
+import AddBanner from './admin/AddBanner'
+import BannerIndex from './admin/BannerIndex'
+import BlogIndex from './admin/BlogIndex'
+import GeneralSettings from './admin/GeneralSettings'
+import ProfileRoutes from './admin/ProfileRoutes'
+import Layout from './admin/Layout'
 
 
 
@@ -54,43 +61,56 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-  <ScrollToTop>
-    <Routes>
-      {/* Public Routes with Header and Footer */}
-      <Route
-        element={
-          <>
-            <Header />
-            <Outlet />
-            <Footer />
-          </>
-        }
-      >
-        <Route path="/" element={<Home />} />
-        <Route path="/blogs" element={<Blogs tempBlogsData={tempBlogsData} />} />
-        <Route path="/blogs/:id" element={<BlogDetails blogs={tempBlogsData} />} />
-        <Route path="/our-courses" element={<Courses />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about-us" element={<AboutUs />} />
-      </Route>
+        <ScrollToTop>
+          <Routes>
+            {/* Public Routes with Header and Footer */}
+            <Route
+              element={
+                <>
+                  <Header />
+                  <Outlet />
+                  <Footer />
+                </>
+              }
+            >
+              <Route path="/" element={<Home />} />
+              <Route path="/blogs" element={<Blogs tempBlogsData={tempBlogsData} />} />
+              <Route path="/blogs/:id" element={<BlogDetails blogs={tempBlogsData} />} />
+              <Route path="/our-courses" element={<Courses />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/about-us" element={<AboutUs />} />
+            </Route>
 
-      {/* Auth Routes without Header and Footer */}
-      <Route
-        element={
-          <>
-            <Outlet />
-          </>
-        }
-      >
-        <Route path="/admin" element={<LoginPage />} />
-        <Route path='/admin/dashboard' element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
-      </Route>
+            {/* Auth Routes without Header and Footer */}
+            <Route
+              element={
+                <>
+                  <Outlet />
+                </>
+              }
+            >
 
-      {/* Catch-all route for undefined paths */}
-      <Route path="*" element={<Error404 />} />
-    </Routes>
-  </ScrollToTop>
-</BrowserRouter>
+
+              <Route exact path="/admin" element={<LoginPage />} />
+              <Route path="/admin/dashboard" element={<Layout />}>
+                <Route index element={<Dashboard />} /> {/* Default dashboard */}
+                <Route path='/admin/dashboard/add-blog' element={<AddBlog/>} />
+                <Route path='/admin/dashboard/all-banner' element={<BannerIndex/>} />
+                <Route path='/admin/dashboard/all-blogs' element={<BlogIndex/>}/>
+                <Route path='/admin/dashboard/add-banners' element={<AddBanner/>} /> 
+                <Route path='/admin/dashboard/general-setting' element={<GeneralSettings/>} />
+                <Route path='/admin/dashboard/profile' element={<ProfileRoutes/>} />
+              </Route>
+              {/* Testing route */}
+              <Route path='/admin/dev-dashboard' element={<Dashboard />} />
+
+            </Route>
+
+            {/* Catch-all route for undefined paths */}
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+        </ScrollToTop>
+      </BrowserRouter>
 
     </>
   )

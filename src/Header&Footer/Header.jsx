@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'; // Import the hamburger icon
 import { AiOutlineClose } from 'react-icons/ai'; // Optional close icon
 import { Link } from 'react-router-dom'
+import Logo from '../assets/logo.png'
 
 const Header = () => {
 
