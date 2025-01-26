@@ -1,9 +1,10 @@
 
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Breadcrumb from '../Components/Breadcrumb';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 
 
 // const tempBlogsData = [
@@ -48,6 +49,33 @@ const Blogs = ({ tempBlogsData }) => {
         { href: '/', label: 'Home' },
         { href: '/blogs', label: 'Blogs' },
     ];
+
+    const [blogs, setBlogs] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    // Calling the api and fetching the data
+    useEffect(() => {
+        // Fetch data from the backend
+        axios.get('https://yogastsankhlam.vercel.app/admin/blogs')
+            .then((response) => {
+                setBlogs(response.data);  // Store the response data (blogs) in state
+                setLoading(false);  // Set loading to false once data is fetched
+            })
+            .catch((err) => {
+                setError(err.message);  // Handle any errors
+                setLoading(false);  // Set loading to false in case of error
+            });
+    }, []);  // Empty dependency array ensures it only runs once when the component mounts
+
+    if (loading) {
+        return <div>Loading...</div>;  // Show loading text while fetching data
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;  // Show error message if there's an issue
+    }
+
     return (
         <>
 
@@ -66,15 +94,15 @@ const Blogs = ({ tempBlogsData }) => {
                 <div className="flex flex-col md:flex-row gap-4">
                     <div className="flex-1 md:w-2/3">
                         {
-                            tempBlogsData.map((item, index) => (
+                            blogs.map((item, index) => (
                                 <Link to={`/blogs/${item.id}`} key={item.id}>
                                     <BlogBody
                                         key={item.id}
                                         title={item.title}
                                         img={item.img}
-                                        desc={item.desc}
+                                        desc={item.description}
                                         createdAt={item.createdAt}
-                                        author={item.author}
+                                        author={item.author_name}
                                         redirect={item.redirectTo}
                                     />
                                 </Link>

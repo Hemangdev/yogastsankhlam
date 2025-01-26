@@ -1,31 +1,46 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const AddBlog = () => {
 
     const [formData, setFormData] = useState({
-        blogTitle: "",
-        blogPostBy: "",
-        thumbnailImage: null,
-        blogShortDescription: "",
-        blogDescription: "",
+        title: '',
+        description: '',
+        author_name: ''
     });
 
 
     const handleChange = (e) => {
-        const { name, value, files } = e.target;
-
-        setFormData((prevState) => ({
-            ...prevState,
-            [name]: files ? files[0] : value,
-        }));
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    // Handle form submission
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form Submitted", formData);
-        // Add your form submission logic here
+
+        // Prepare the data to be sent to the backend
+        const dataToSend = {
+            title: formData.title,
+            description: formData.description,
+            author_name: formData.author_name
+        };
+
+        try {
+            const response = await axios.post('https://yogastsankhlam.vercel.app/admin/add-blogs', dataToSend, {
+                headers: {
+                    'Content-Type': 'application/json', // Since we are not uploading a file, use application/json
+                },
+            });
+
+            console.log('Blog added successfully:', response.data);
+            // Handle success (e.g., clear the form, show success message)
+        } catch (error) {
+            console.error('Error adding blog:', error.response ? error.response.data : error);
+            // Handle error (e.g., show error message to the user)
+        }
     };
 
 
@@ -48,7 +63,7 @@ const AddBlog = () => {
                         <label className="block text-sm font-medium text-gray-700 mb-1">Blog Title</label>
                         <input
                             type="text"
-                            name="blogTitle"
+                            name="title"
                             placeholder="Enter blog title"
                             className="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
                             value={formData.blogTitle}
@@ -61,27 +76,12 @@ const AddBlog = () => {
                         <label className="block text-sm font-medium text-gray-700 mb-1">Blog Post By</label>
                         <input
                             type="text"
-                            name="blogPostBy"
+                            name="author_name"
                             placeholder="Author's name"
                             className="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
                             value={formData.blogPostBy}
                             onChange={handleChange}
                         />
-                    </div>
-
-                    {/* Thumbnail Image */}
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Thumbnail Image</label>
-                        <input
-                            type="file"
-                            name="thumbnailImage"
-                            accept="image/png, image/jpeg, image/jpg"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
-                            onChange={handleChange}
-                        />
-                        <small className="text-red-600">
-                            Allowed formats: PNG, JPEG, JPG. Must be smaller than 5MB and 300x300 size.
-                        </small>
                     </div>
 
                     {/* Blog Short Description */}
@@ -101,9 +101,9 @@ const AddBlog = () => {
                     <div className="col-span-1 md:col-span-2">
                         <label className="block text-sm font-medium text-gray-700 mb-1">Blog Description</label>
                         <textarea
-                            name="blogDescription"
+                            name="description"
                             placeholder="Enter the full description"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300 "
+                            className="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
                             rows="5"
                             value={formData.blogDescription}
                             onChange={handleChange}
