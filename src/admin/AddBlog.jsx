@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddBlog = () => {
 
@@ -25,21 +27,33 @@ const AddBlog = () => {
         const dataToSend = {
             title: formData.title,
             description: formData.description,
-            author_name: formData.author_name
+            author_name: formData.author_name,
         };
 
         try {
-            const response = await axios.post('https://yogastsankhlam.vercel.app/admin/add-blogs', dataToSend, {
+            const response = await axios.post('http://localhost:3000/admin/add-blogs', dataToSend, {
                 headers: {
                     'Content-Type': 'application/json', // Since we are not uploading a file, use application/json
                 },
             });
 
             console.log('Blog added successfully:', response.data);
-            // Handle success (e.g., clear the form, show success message)
+
+            // Show success toast
+            toast.success('Blog added successfully!', {
+                autoClose: 5000, // Auto close after 5 seconds
+            });
+
+            // You can clear the form here if needed
+            // setFormData({ title: '', description: '', author_name: '' });
+
         } catch (error) {
             console.error('Error adding blog:', error.response ? error.response.data : error);
-            // Handle error (e.g., show error message to the user)
+
+            // Show error toast
+            toast.error('Error adding blog. Please try again later.', {
+                autoClose: 5000, // Auto close after 5 seconds
+            });
         }
     };
 
@@ -120,6 +134,7 @@ const AddBlog = () => {
                         </button>
                     </div>
                 </form>
+                <ToastContainer />
             </div>
         </>
     );

@@ -36,11 +36,11 @@ const Footer = () => {
         </footer>
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-center items-center my-2 p-2">
+      {/* <div className="flex flex-col sm:flex-row justify-center items-center my-2 p-2">
         <span className=''>Developed by MANHEM Digital Solutions Pvt. Ltd.</span>
         <img className='w-[2rem] md:w-[2rem] lg:w-[2rem] mx-2 my-2' src={OurLogo} alt="" />
 
-      </div>
+      </div> */}
 
 
 

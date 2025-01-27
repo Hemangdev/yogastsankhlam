@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import Breadcrumb from '../Components/Breadcrumb';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import loader from '../assets/loading.gif'
 
 
 // const tempBlogsData = [
@@ -50,26 +51,34 @@ const Blogs = ({ tempBlogsData }) => {
         { href: '/blogs', label: 'Blogs' },
     ];
 
-    const [blogs, setBlogs] = useState([]);
+    const [blogsData, setBlogsData] = useState([])
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     // Calling the api and fetching the data
     useEffect(() => {
         // Fetch data from the backend
-        axios.get('https://yogastsankhlam.vercel.app/admin/blogs')
+        axios.get('http://localhost:3000/admin/blogs')
             .then((response) => {
-                setBlogs(response.data);  // Store the response data (blogs) in state
-                setLoading(false);  // Set loading to false once data is fetched
+                console.log(response.data);  // Log the response to check the structure
+
+                // Ensure response.data is an array
+                if (Array.isArray(response.data)) {
+                    setBlogsData(response.data);  // Set blogs data as array
+                } else {
+                    console.error('Expected an array of blogs but got:', response.data);
+                    setError('Invalid data format');
+                }
+                setLoading(false);
             })
             .catch((err) => {
                 setError(err.message);  // Handle any errors
-                setLoading(false);  // Set loading to false in case of error
+                setLoading(false);
             });
     }, []);  // Empty dependency array ensures it only runs once when the component mounts
 
     if (loading) {
-        return <div>Loading...</div>;  // Show loading text while fetching data
+        return <img src="path/to/loading.gif" alt="Loading..." />; // Show loading GIF while fetching data
     }
 
     if (error) {
@@ -92,22 +101,28 @@ const Blogs = ({ tempBlogsData }) => {
                 {/* Blog listing Comes here */}
 
                 <div className="flex flex-col md:flex-row gap-4">
-                    <div className="flex-1 md:w-2/3">
-                        {
-                            blogs.map((item, index) => (
-                                <Link to={`/blogs/${item.id}`} key={item.id}>
-                                    <BlogBody
-                                        key={item.id}
-                                        title={item.title}
-                                        img={item.img}
-                                        desc={item.description}
-                                        createdAt={item.createdAt}
-                                        author={item.author_name}
-                                        redirect={item.redirectTo}
-                                    />
-                                </Link>
+                    <div>
+                        {loading ? (
+                            // Show loading GIF while fetching data
+                            <img src={loader} alt="Loading..." />
+                        ) : blogsData.length > 0 ? (
+                            // Show the blogs if they are fetched successfully
+                            blogsData.map((item) => (
+                                <BlogBody
+                                    key={item.id}
+                                    title={item.title}
+                                    img={item.img}
+                                    desc={item.description}
+                                    createdAt={item.createdAt}
+                                    author={item.author_name}
+                                    redirect={item.redirectTo}
+                                />
+
                             ))
-                        }
+                        ) : (
+                            // Show a message if no blogs were fetched
+                            <div>No blogs available.</div>
+                        )}
                     </div>
 
                     <div className="md:w-1/3 bg-gray-100 p-4 rounded-md shadow-md my-5">
