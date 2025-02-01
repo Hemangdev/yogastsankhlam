@@ -57,7 +57,7 @@ const Membership = () => {
                 method: "POST",
                 body: JSON.stringify(jsonData),
                 headers: { "Content-Type": "application/json" },
-                mode:'no-cors'
+                mode: 'no-cors'
             });
 
             if (!response.ok) {
@@ -82,7 +82,15 @@ const Membership = () => {
         <>
             <div className='max-w-[1540px] mx-auto p-4 mt-[70px]'>
                 <Breadcrumb paths={breadcrumbPaths} />
-                <form ref={formRef} onSubmit={handleSubmit} className="">
+                <div className='mainCategoryHead'>
+                    <h1 className="text-[32px] md:text-[38px] font-bold text-[#63948b]">
+                        Connect with Us for Your Yoga Journey
+                    </h1>
+                    <p className="md:text-[20px]">
+                        We’re here to guide and support you on your wellness journey. Whether you’re looking for more information, have questions, or are ready to begin your yoga practice, we’d love to hear from you. Get in touch with us today!
+                    </p>
+                </div>
+                <form ref={formRef} onSubmit={handleSubmit} className="mt-[30px]">
                     <div>
                         <label
                             htmlFor="name"
