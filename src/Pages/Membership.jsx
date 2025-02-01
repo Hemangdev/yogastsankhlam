@@ -13,6 +13,7 @@ const Membership = () => {
     ];
 
     const [formData, setFormData] = useState({ name: "", email: "", age: "", profession: "", mobile: "" });
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -47,6 +48,7 @@ const Membership = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         const scriptURL = "https://script.google.com/macros/s/AKfycbw5OVUM1DPaoHVBFdIp2SUDniAzsfAgDERqC_P7gFdjPY35KQ_QaGxVRhl7EcC02KU/exec"; // Replace with latest Web App URL
 
         const formData = new FormData(e.target);
@@ -75,6 +77,7 @@ const Membership = () => {
             console.error("Error submitting form:", error.message);
             toast.error(`Error submitting form: ${error.message}`, { autoClose: 5000 });
         }
+        setLoading(false);
     };
 
 
@@ -177,12 +180,29 @@ const Membership = () => {
                             required
                         />
                     </div>
-                    <div className="my-5">
+                    {/* <div className="my-5">
                         <button
                             type="submit"
                             className="w-full text-white bg-[#63948b] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                         >
                             Submit
+                        </button>
+                    </div> */}
+                    <div className="my-5">
+                        <button
+                            type="submit"
+                            className={`w-full text-white bg-[#63948b] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center flex justify-center items-center transition-all duration-200 ease-in-out ${loading ? "opacity-70 cursor-wait" : ""}`}
+                            disabled={loading} // Disable button when loading
+                        >
+                            {loading ? (
+                                <div className="flex justify-center items-center space-x-2">
+                                    {/* Simple Dot Loader */}
+                                    <span className="loader-dot"></span>
+                                    <span>Processing...</span>
+                                </div>
+                            ) : (
+                                "Submit"
+                            )}
                         </button>
                     </div>
 
