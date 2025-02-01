@@ -42,7 +42,10 @@ const Header = () => {
                                 <Link to={'/contact'}>
                                     <li className="text-black hover:text-[#705f5b]">Contact</li>
                                 </Link>
-                                <li className="text-black hover:text-[#705f5b]">Gallery</li>
+                                <Link to={'/our-gallery'}>
+                                    <li className="text-black hover:text-[#705f5b]">Gallery</li>
+                                </Link>
+
                             </ul>
                         </div>
 
@@ -78,7 +81,7 @@ const Header = () => {
                             <li onClick={toggleDrawer}><a href="/our-courses">Courses</a></li>
                             <li onClick={toggleDrawer}><a href="/blogs">Blogs</a></li>
                             <li onClick={toggleDrawer}><a href="/contact">Contact</a></li>
-                            <li onClick={toggleDrawer}>Gallery</li>
+                            <li onClick={toggleDrawer}><a href="/our-gallery">Gallery</a></li>
                         </ul>
                     </div>
                 </div>

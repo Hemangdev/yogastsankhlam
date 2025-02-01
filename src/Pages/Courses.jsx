@@ -15,7 +15,7 @@ const Courses = () => {
         <>
             <div className='max-w-[1540px] mx-auto p-4 h-full mt-[70px]'>
             <Breadcrumb paths={breadcrumbPaths} />
-                <img className='mt-[50px] rounded-2xl' src={ComingSoon} alt="coming-soon" />
+                <img className='mt-[50px] rounded-2xl w-full' src={ComingSoon} alt="coming-soon" />
 
                 <div className='mt-[50px]'>
                     <h1 className='text-[32px] font-bold text-center'>We are Launching our Courses Soon...</h1>

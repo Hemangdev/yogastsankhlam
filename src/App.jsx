@@ -24,6 +24,8 @@ import Layout from './admin/Layout'
 import AddCategory from './admin/AddCategory'
 import AllCategories from './admin/AllCategories'
 import EditBlog from './admin/EditBlog'
+import Gallery from './Pages/Gallery'
+import Membership from './Pages/Membership'
 
 
 
@@ -82,6 +84,8 @@ const App = () => {
               <Route path="/our-courses" element={<Courses />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/our-gallery" element={<Gallery/>}/>
+              <Route path='/membership' element={<Membership/>} />
             </Route>
 
             {/* Auth Routes without Header and Footer */}

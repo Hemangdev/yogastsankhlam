@@ -1,20 +1,50 @@
-/* eslint-disable react/prop-types */
+ 
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Breadcrumb from './Breadcrumb';
 import { CiShare1 } from "react-icons/ci";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
-const BlogDetails = ({ blogs }) => {
+const BlogDetails = () => {
 
+    const [blogsData, setBlogsData] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
+    // Fetching id from the URL
     const { id } = useParams();
-    const blog = blogs.find((item) => item.id === parseInt(id, 10));
 
-    if (!blog) {
-        return <p>Blog Not Found</p>;
+    // const blog = blogs.find((item) => item.id === parseInt(id, 10));
+
+    useEffect(() => {
+        const fetchBlogDetails = async () => {
+            try {
+                // Replace this with your actual data fetching logic
+                const response = await axios.get(`http://localhost:3000/admin/blogs/${id}`);
+                const data = response.data;
+                setBlogsData(data);
+                setLoading(false);
+                console.log(`${data}`);
+
+            } catch (error) {
+                console.error('Error fetching blog details:', error);
+                setLoading(false);
+                setError(error)
+            }
+        };
+
+        fetchBlogDetails();
+    }, [id]);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (!blogsData) {
+        return <div>Blog not found</div>;
     }
 
 
@@ -28,10 +58,10 @@ const BlogDetails = ({ blogs }) => {
             <div className='max-w-[1540px] mx-auto p-4 mt-[70px]'>
                 <Breadcrumb paths={breadcrumbPaths} />
                 <div className='mainDiv'>
-                    <h1 className='text-black font-bold text-[30px] md:text-[48px]'>{blog.title}</h1>
+                    <h1 className='text-black font-bold text-[30px] md:text-[48px]'>{blogsData.title}</h1>
 
                     <div className='w-full flex justify-between my-5'>
-                        <div className='userDiv font-bold'>{blog.author}</div>
+                        <div className='userDiv font-bold'>{blogsData.author_name}</div>
 
                         <div className='social-connect flex gap-2'>
                             <FaWhatsapp size={20} />
@@ -40,7 +70,7 @@ const BlogDetails = ({ blogs }) => {
                         </div>
                     </div>
                     <div className='imgDiv'>
-                        <img className='rounded-2xl my-3' src= {blog.img} alt="" />
+                        <img className='rounded-2xl my-3' src={blogsData.img ? blogsData.img : 'No Image found!'} alt="" />
                     </div>
 
                     <div className='content-div'>
@@ -59,4 +89,4 @@ const BlogDetails = ({ blogs }) => {
     )
 }
 
-export default BlogDetails
+export default BlogDetails;
