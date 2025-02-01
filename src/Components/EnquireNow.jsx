@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const EnquireNow = () => {
     return (
@@ -13,14 +14,15 @@ const EnquireNow = () => {
                     </p>
 
                     {/* Button Section */}
-                    <button
-                        type="button"
-                        data-modal-target="authentication-modal"
-                        data-modal-toggle="authentication-modal"
-                        className="px-4 py-2 md:px-6 md:py-3 rounded-sm bg-white text-[#63948b] font-semibold text-[14px] md:text-[16px] lg:text-[20px]"
-                    >
-                        EXPLORE MORE
-                    </button>
+                    <Link to={'/membership'}>
+                        <button
+                            type="button"
+                            className="px-4 py-2 md:px-6 md:py-3 rounded-sm bg-white text-[#63948b] font-semibold text-[14px] md:text-[16px] lg:text-[20px]"
+                        >
+                            GET IN TOUCH
+                        </button>
+                    </Link>
+
                 </div>
             </div>
 

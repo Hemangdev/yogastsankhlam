@@ -139,7 +139,7 @@ const Blogs = ({ tempBlogsData }) => {
                             ))
                         ) : (
                             // Show a message if no blogs were fetched
-                            <img style={{ marginTop: '60px' }} src={loader} alt="Loading..." />
+                            <div className='mt-[150px] flex justify-center items-center'>{error}</div>
                         )}
                     </div>
 

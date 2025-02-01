@@ -19,6 +19,8 @@
     "ckeditor5-premium-features": "^44.1.0",
     "datatables.net": "^2.2.1",
     "dotenv": "^16.4.7",
+    "email-js": "^2.0.3",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^11.11.10",
     "jquery": "^3.7.1",
     "react": "^18.3.1",

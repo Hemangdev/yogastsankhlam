@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import Breadcrumb from '../Components/Breadcrumb';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import emailjs from 'emailjs-com';
 
 const Membership = () => {
     const formRef = useRef(null);
@@ -46,38 +47,68 @@ const Membership = () => {
 
     // };
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setLoading(true); // Start loading
+
+    //     const scriptURL = "https://script.google.com/macros/s/AKfycbxYIsaJRkHu-SqbjFz7JV0fTMPf-8vLg8kT644Fh9QrKFe7-qBGSg4x1zNY8nsA7Fg/exec"; // Replace with actual URL
+    //     const formData = new FormData(e.target);
+    //     const jsonData = Object.fromEntries(formData.entries());
+
+    //     try {
+    //         const response = await fetch(scriptURL, {
+    //             method: "POST",
+    //             body: JSON.stringify(jsonData),
+    //             headers: { "Content-Type": "application/json" },
+    //         });
+
+    //         if (!response.ok) {
+    //             const errorText = await response.text(); // Get error message from response
+    //             throw new Error(`Error: ${response.status} - ${errorText}`);
+    //         }
+
+    //         const result = await response.json(); // Parse the result if needed
+    //         console.log("Success:", result);
+    //         toast.success("Form Sent Successfully!", { autoClose: 5000 });
+    //         e.target.reset(); // Reset the form
+    //     } catch (error) {
+    //         console.error("Error submitting form:", error.message);
+    //         toast.error(`Error: ${error.message}`, { autoClose: 5000 });
+    //     }
+
+    //     setLoading(false); // Stop loading after submission
+    // };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
-        const scriptURL = "https://script.google.com/macros/s/AKfycbw5OVUM1DPaoHVBFdIp2SUDniAzsfAgDERqC_P7gFdjPY35KQ_QaGxVRhl7EcC02KU/exec"; // Replace with latest Web App URL
+        setLoading(true); // Start loading
 
+        // EmailJS variables
+        const serviceID = 'service_p1ifge6'; // Replace with your service ID
+        const templateID = 'template_pb9rqua'; // Replace with your template ID
+        const userID = '_1AVSuPs_7C6gA0zx'; // Replace with your user ID (can be found in EmailJS dashboard)
+
+        // Collect form data
         const formData = new FormData(e.target);
         const jsonData = Object.fromEntries(formData.entries());
 
         try {
-            const response = await fetch(scriptURL, {
-                method: "POST",
-                body: JSON.stringify(jsonData),
-                headers: { "Content-Type": "application/json" },
-                mode: 'no-cors'
-            });
+            // Send the email using EmailJS
+            const response = await emailjs.send(serviceID, templateID, jsonData, userID);
 
-            if (!response.ok) {
-                const errorMessage = await response.text(); // Get error details
-                throw new Error(`Server Error: ${response.status} - ${errorMessage}`);
+            if (response.status === 200) {
+                console.log("Success:", response);
+                toast.success("Form Sent Successfully!", { autoClose: 5000 });
+                e.target.reset(); // Reset the form
+            } else {
+                throw new Error(`Error: ${response.status} - ${response.text}`);
             }
-
-            const result = await response.json(); // Parse response JSON
-            console.log("Success:", result);
-
-            toast.success("Form Sent Successfully!", { autoClose: 5000 });
-            e.target.reset(); // Reset form
-
         } catch (error) {
-            console.error("Error submitting form:", error.message);
-            toast.error(`Error submitting form: ${error.message}`, { autoClose: 5000 });
+            console.error("Error sending email:", error.message);
+            toast.error(`Error: ${error.message}`, { autoClose: 5000 });
         }
-        setLoading(false);
+
+        setLoading(false); // Stop loading after submission
     };
 
 
