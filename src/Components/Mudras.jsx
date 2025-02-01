@@ -7,21 +7,21 @@ import img3 from '../assets/3.png'
 const mudrasData = [
     {
         id: 1,
-        mudra: 'Hello Mudra',
+        mudra: 'Namaskaram',
         img: img1,
-        details: 'Yogastsankhlam is the best studio of the yoga and meditation, sharp your yoga with astsankhlam'
+        details: 'Namaskaram is a traditional greeting gesture in yoga, often performed as a sequence of movements to connect the mind, body, and soul. It is typically done by bringing the palms together in front of the heart (Anjali Mudra), accompanied by a slight bow, symbolizing respect, gratitude, and humility. This pose can be a warm-up to calm the mind and prepare for deeper practices.'
     },
     {
         id: 2,
-        mudra: 'Hello Mudra',
+        mudra: 'Paschimottanasana (Seated Forward Bend)',
         img: img2,
-        details: 'Yogastsankhlam is the best studio of the yoga and meditation, sharp your yoga with astsankhlam'
+        details: 'Paschimottanasana is a seated yoga pose that stretches the back, hamstrings, and spine. To perform it, sit with your legs extended straight in front of you, and then slowly bend forward from the hips, reaching for your feet or ankles. It helps improve flexibility, relieve stress, and calm the mind, making it an excellent pose for relaxation.'
     },
     {
         id: 3,
-        mudra: 'Hello Mudra',
+        mudra: 'Pranayama',
         img: img3,
-        details: 'Yogastsankhlam is the best studio of the yoga and meditation, sharp your yoga with astsankhlam'
+        details: 'Pranayama refers to the practice of controlled breathing techniques in yoga, which help regulate the flow of vital energy (prana) in the body. By focusing on the breath, practitioners can enhance mental clarity, reduce stress, and increase physical vitality. Pranayama is often practiced before or during asana sessions to calm the nervous system and prepare for meditation.'
     },
 ]
 

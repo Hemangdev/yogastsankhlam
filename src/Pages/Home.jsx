@@ -91,6 +91,12 @@ const Home = () => {
                                 practice through carefully curated sessions that blend traditional
                                 techniques with modern insights.
                             </p>
+                            <p className="text-[#725C4C] text-[14px] md:text-[18px] lg:text-[20px] leading-[1.5] md:leading-[1.8]">
+                                At Yogastsankhlam, we believe that yoga is more than just physical postures—it’s a pathway to self-awareness and spiritual growth. Our experienced instructors blend time-honored yoga practices with modern insights, ensuring that each session is thoughtfully designed to meet the needs of our diverse community. Whether you’re a beginner or an advanced practitioner, we provide a wide range of classes, from Hatha and Vinyasa yoga to restorative and meditation practices, allowing you to tailor your journey according to your unique goals.
+                            </p>
+                            <p className="text-[#725C4C] text-[14px] md:text-[18px] lg:text-[20px] leading-[1.5] md:leading-[1.8]">
+                                Our carefully curated sessions are crafted to help you build strength, increase flexibility, and enhance mental focus, all while fostering a sense of peace and calm. Through guided breathing exercises (pranayama) and mindful meditation, we guide you in achieving a deeper sense of relaxation and inner harmony.
+                            </p>
                             <div className="mt-[20px]">
                                 <a href="/about-us">
                                     <button className="px-4 py-2 rounded-sm bg-[#cbb799] text-white font-semibold text-[14px] md:text-[16px] lg:text-[20px]">
@@ -140,8 +146,13 @@ const Home = () => {
                             Training Session
                         </h2>
                         <p className="text-[#725C4C] text-[14px] md:text-[18px] lg:text-[20px] leading-[1.5] md:leading-[1.8]">
-                            Yogastsankhlam is the best studio for yoga and meditation. Sharpen your
-                            yoga practice with Astsankhlam.
+                            At Yogastsankhlam, we offer personalized training sessions designed to meet your unique needs and goals. Whether you're looking to deepen your yoga practice, explore mindfulness, or embark on a journey of self-discovery, our expert instructors are here to guide you every step of the way. Booking a training session with us ensures that you receive dedicated attention, a tailored approach, and a nurturing environment to help you grow physically, mentally, and spiritually.
+                        </p>
+                        <p className="text-[#725C4C] text-[14px] md:text-[18px] lg:text-[20px] leading-[1.5] md:leading-[1.8]">
+                            We understand that every individual’s yoga journey is different, which is why we offer flexible scheduling options to suit your lifestyle. Our training sessions are available in various formats, including one-on-one sessions, small group classes, and specialized workshops. Whether you prefer to practice in a private setting or in a supportive group environment, we have the perfect solution for you.
+                        </p>
+                        <p className="text-[#725C4C] text-[14px] md:text-[18px] lg:text-[20px] leading-[1.5] md:leading-[1.8]">
+                            Our team at Yogastsankhlam is passionate about creating a safe and inclusive space for students of all levels, from beginners to advanced practitioners. When you book a training session, you’ll receive personalized guidance tailored to your experience and needs, ensuring that you progress at a comfortable pace.
                         </p>
                         <div className="mt-[20px]">
                             <Link to={'/membership'}>
