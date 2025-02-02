@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import banner1 from '../assets/6.jpg'
 import banner2 from '../assets/1.jpg'
 import banner3 from '../assets/2.jpg'
@@ -18,6 +17,7 @@ import EnquireNow from '../Components/EnquireNow';
 import Mudras from '../Components/Mudras';
 import InstaFollow from '../Components/InstaFollow';
 import { Link } from 'react-router-dom';
+import FollowCta from '../Components/FollowCta';
 
 
 // Dummy banner images
@@ -41,6 +41,9 @@ const Home = () => {
             <div className='max-w-[1540px] mx-auto mt-[50px]'>
 
                 <div className="relative w-full">
+                    <div className="absolute top-[110px] left-[10px] sm:top-[240px] lg:top-[380px] z-[9]">
+                        <FollowCta />
+                    </div>
                     {/* Swiper Slider */}
                     <Swiper
                         modules={[Navigation, Pagination, Autoplay]}
@@ -118,9 +121,6 @@ const Home = () => {
                         </div>
                     </div>
                 </motion.div>
-
-
-
                 <div>
                     <EnquireNow />
                 </div>
@@ -168,7 +168,6 @@ const Home = () => {
 
                         </div>
                     </div>
-
                     {/* Image Section */}
                     <div className="w-full md:w-1/2 flex justify-center">
                         <img

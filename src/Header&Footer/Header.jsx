@@ -51,9 +51,12 @@ const Header = () => {
 
                         {/* Contact Button for Tablet and Desktop */}
                         <div className="hidden lg:block">
-                            <button className="px-4 py-2 bg-[#705f5b] text-white text-[14px] md:text-[16px] rounded-sm">
-                                Contact Us
-                            </button>
+                            <Link to={'/membership'}>
+                                <button className="px-4 py-2 bg-[#705f5b] text-white text-[14px] md:text-[16px] rounded-sm">
+                                    Contact Us
+                                </button>
+                            </Link>
+
                         </div>
 
                         {/* Hamburger Menu for Mobile and Tablet */}
