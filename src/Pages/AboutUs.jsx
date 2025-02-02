@@ -14,7 +14,7 @@ const AboutUs = () => {
         <>
             <div className='max-w-[1540px] mx-auto mt-[50px]'>
                 <div className="relative w-full">
-                    <div className="absolute top-[150px] left-[10px] sm:top-[310px] lg:top-[450px]">
+                    <div className="absolute top-[60px] left-[10px] sm:top-[310px] lg:top-[450px]">
                         <FollowCta />
                     </div>
 

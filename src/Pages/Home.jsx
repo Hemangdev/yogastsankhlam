@@ -12,6 +12,7 @@ import banner4 from '../assets/3.jpg'
 import banner5 from '../assets/4.jpg'
 import banner6 from '../assets/5.jpg'
 import AboutImg from '../assets/about-us.png'
+import FounderImg from '../assets/founder.jpg'
 import { motion } from 'framer-motion';
 import EnquireNow from '../Components/EnquireNow';
 import Mudras from '../Components/Mudras';
@@ -41,7 +42,7 @@ const Home = () => {
             <div className='max-w-[1540px] mx-auto mt-[50px]'>
 
                 <div className="relative w-full">
-                    <div className="absolute top-[110px] left-[10px] sm:top-[240px] lg:top-[380px] z-[9]">
+                    <div className="absolute top-[60px] left-[10px] sm:top-[240px] lg:top-[380px] z-[9]">
                         <FollowCta />
                     </div>
                     {/* Swiper Slider */}
@@ -78,6 +79,39 @@ const Home = () => {
 
                     {/* Text Content */}
                 </div>
+
+                <div className='my-5'>
+                    <h1 className='text-[30px] md:text-[60px] font-bold text-center'>Guidance from Our Founder</h1>
+
+                    <div className="container mx-auto px-4 py-8">
+                        <div className="flex flex-col md:flex-row items-center gap-6">
+
+                            <div className="w-full md:w-1/3">
+                                <img style={{filter:"brightness(60%)"}} src={FounderImg} alt="Shri Chirag Paswan" className="w-full h-auto rounded-lg shadow-lg" />
+                            </div>
+
+                            <div className="w-full md:w-2/3">
+                                <h2 className="text-2xl font-bold text-gray-900">Meet Our Visionary Founder</h2>
+                                <p className="mt-2 text-lg font-semibold text-gray-700">Miss Dipanita Biswas</p>
+                                <p className="text-sm text-gray-600">Founder - Yogastsankhlam</p>
+                                <p className="text-sm text-gray-900 font-bold">Heal The Life, Feel The Change.</p>
+                                <p className="mt-4 text-gray-700 leading-relaxed">
+                                    Dear All,
+                                    <br /><br />
+                                    I warmly welcome you to Yogastsankhlam, a sanctuary where the art of yoga and meditation meets modern well-being. Our mission is to offer a holistic approach to deepening your yoga practice through thoughtfully curated sessions that blend traditional wisdom with contemporary insights.
+                                    <br /><br />
+                                    Under the visionary leadership of our founder, Dipanita, Yogastsankhlam is committed to guiding you on a transformative journey of self-discovery, balance, and inner peace.
+                                    <br /><br />
+                                    <strong>Embrace mindfulness, awaken your potential.</strong>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
 
                 {/*About Us Div  */}
 
@@ -124,6 +158,11 @@ const Home = () => {
                 <div>
                     <EnquireNow />
                 </div>
+
+                {/* Meet Our Visinory Founder */}
+
+
+
 
 
                 <div className='my-5'>
