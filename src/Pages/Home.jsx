@@ -23,7 +23,7 @@ import FollowCta from '../Components/FollowCta';
 
 // Dummy banner images
 const bannerImages = [
-    banner1, banner2, banner3, banner4, banner5, banner6
+     banner1
 ];
 
 const Home = () => {
@@ -39,7 +39,7 @@ const Home = () => {
     return (
         <>
 
-            <div className='max-w-[1540px] mx-auto mt-[50px]'>
+            <div className='max-w-[1540px] mx-auto mt-[85px] sm:mt-[0px]'>
 
                 <div className="relative w-full">
                     <div className="absolute top-[60px] left-[10px] sm:top-[240px] lg:top-[380px] z-[9]">
