@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const EnquireNow = () => {
     return (
         <>
-            <div className="max-w-[1540px] mx-auto p-4 bg-[#63948b]">
+            <div className="max-w-[1540px] mx-auto p-4 bg-[#e4dacc]">
                 <div className="flex flex-col w-full gap-4 justify-start items-start md:flex-row md:justify-between md:items-center">
                     {/* Text Section */}
                     <p className="text-white font-bold text-[20px] leading-[28px] md:text-[28px] md:leading-[40px] lg:text-[35px] lg:leading-[50px]">

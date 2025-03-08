@@ -31,7 +31,7 @@ const Header = () => {
 
     return (
         <div
-            className={`fixed top-0 left-0 w-full z-10 transition-all duration-300  ${isScrolled ? "bg-[#100f0f]" : "bg-transparent"}`}
+            className={`fixed top-0 left-0 w-full z-10 transition-all duration-300  ${isScrolled ? "bg-[#516157]" : "bg-transparent"}`}
         >
             <div className="max-w-[1540px] mx-auto px-2">
                 <div className="flex items-center justify-between lg:justify-center relative">

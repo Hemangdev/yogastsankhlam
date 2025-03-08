@@ -13,6 +13,7 @@ import banner5 from '../assets/4.jpg'
 import banner6 from '../assets/5.jpg'
 import AboutImg from '../assets/about-us.png'
 import FounderImg from '../assets/founder.jpg'
+import AboutNewImg from '../assets/about-new.jpg'
 import { motion } from 'framer-motion';
 import EnquireNow from '../Components/EnquireNow';
 import Mudras from '../Components/Mudras';
@@ -23,7 +24,7 @@ import FollowCta from '../Components/FollowCta';
 
 // Dummy banner images
 const bannerImages = [
-     banner1
+    banner1
 ];
 
 const Home = () => {
@@ -80,36 +81,16 @@ const Home = () => {
                     {/* Text Content */}
                 </div>
 
-                <div className='my-5'>
-                    <h1 className='text-[30px] md:text-[60px] font-bold text-center'>Guidance from Our Founder</h1>
-
-                    <div className="container mx-auto px-4 py-8">
-                        <div className="flex flex-col md:flex-row items-center gap-6">
-
-                            <div className="w-full md:w-1/3">
-                                <img style={{filter:"brightness(60%)"}} src={FounderImg} alt="Shri Chirag Paswan" className="w-full h-auto rounded-lg shadow-lg" />
-                            </div>
-
-                            <div className="w-full md:w-2/3">
-                                <h2 className="text-2xl font-bold text-gray-900">Meet Our Visionary Founder</h2>
-                                <p className="mt-2 text-lg font-semibold text-gray-700">Miss Dipanita Biswas</p>
-                                <p className="text-sm text-gray-600">Founder - Yogastsankhlam</p>
-                                <p className="text-sm text-gray-900 font-bold">Heal The Life, Feel The Change.</p>
-                                <p className="mt-4 text-gray-700 leading-relaxed">
-                                    Dear All,
-                                    <br /><br />
-                                    I warmly welcome you to Yogastsankhlam, a sanctuary where the art of yoga and meditation meets modern well-being. Our mission is to offer a holistic approach to deepening your yoga practice through thoughtfully curated sessions that blend traditional wisdom with contemporary insights.
-                                    <br /><br />
-                                    Under the visionary leadership of our founder, Dipanita, Yogastsankhlam is committed to guiding you on a transformative journey of self-discovery, balance, and inner peace.
-                                    <br /><br />
-                                    <strong>Embrace mindfulness, awaken your potential.</strong>
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
+                <div className="flex flex-col items-center text-center p-6 aboutSection bg-[#e4dacc]">
+                    <h2 className="text-[#6a604f] text-[28px] md:text-[48px] lg:text-[60px] font-semibold md:text-">Experiences of Yoga</h2>
+                    <p className="text-[#516157] mt-2 max-w-lg text-[9px] sm:text-[22px]">
+                        Yoga is a journey of self-discovery, inner peace, and mindfulness. It enhances flexibility, reduces stress, and brings harmony to the mind and body.
+                    </p>
+                    <img src={AboutNewImg} alt="Yoga Experience" className="w-full mt-4"/>
                 </div>
+
+
+
 
 
 
@@ -119,7 +100,7 @@ const Home = () => {
                     <div className="flex flex-col items-center w-full md:flex-row my-5 p-4 space-y-4 md:space-y-0 md:space-x-8">
                         {/* Text Section */}
                         <div className="w-full md:w-1/2 text-center md:text-left">
-                            <h2 className="text-[28px] md:text-[48px] lg:text-[60px] font-bold text-[#3D211A] leading-[1.2]">
+                            <h2 className="text-[28px] md:text-[48px] lg:text-[60px] font-bold text-[#6a604f] leading-[1.2]">
                                 About Us
                             </h2>
                             <p className="text-[#725C4C] text-[14px] md:text-[18px] lg:text-[20px] leading-[1.5] md:leading-[1.8]">

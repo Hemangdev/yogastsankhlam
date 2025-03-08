@@ -60,13 +60,14 @@ const Blogs = ({ tempBlogsData }) => {
     // Calling the api and fetching the data
     useEffect(() => {
         // Fetch data from the backend
-        axios.get('http://localhost:3000/admin/blogs')
+        axios.get('http://localhost:8000/api/blogs')
             .then((response) => {
                 console.log(response.data);  // Log the response to check the structure
 
                 // Ensure response.data is an array
                 if (Array.isArray(response.data)) {
                     setBlogsData(response.data);  // Set blogs data as array
+                    
                 } else {
                     console.error('Expected an array of blogs but got:', response.data);
                     setError('Invalid data format');
@@ -91,6 +92,7 @@ const Blogs = ({ tempBlogsData }) => {
         <>
 
 
+
             <div className='max-w-[1540px] mx-auto p-4 mt-[70px]'>
                 <Breadcrumb paths={breadcrumbPaths} />
                 {/* Search filters */}
@@ -100,8 +102,8 @@ const Blogs = ({ tempBlogsData }) => {
                             key={index}
                             onClick={() => setActiveCategory(index)}
                             className={`px-2 py-2 rounded-md ${activeCategory === index
-                                    ? "bg-[#cbb799] text-white"
-                                    : "border border-[#cbb799] bg-transparent text-[#cbb799]"
+                                ? "bg-[#cbb799] text-white"
+                                : "border border-[#cbb799] bg-transparent text-[#cbb799]"
                                 }`}
                         >
                             {item.parentName}
@@ -139,7 +141,9 @@ const Blogs = ({ tempBlogsData }) => {
                             ))
                         ) : (
                             // Show a message if no blogs were fetched
-                            <div className='mt-[150px] flex justify-center items-center'>{error}</div>
+                            <div className='max-w-[1540px] mx-auto'>
+                                <img src="https://placehold.co/1080x400" alt="" />
+                            </div>
                         )}
                     </div>
 
@@ -185,7 +189,7 @@ const BlogBody = ({ title, img, createdAt, author, desc, redirect }) => {
                             Members only
                         </p>
                         <div className="text-gray-900 font-bold text-xl mb-2">{title}</div>
-                        <p className="text-gray-700 text-base">{desc}</p>
+                        <p dangerouslySetInnerHTML={{ __html: desc }}  className="text-gray-700 text-base"></p>
                     </div>
                     <div className="flex items-center">
                         <img className="w-10 h-10 rounded-full mr-4" src="https://placehold.co/10x10" alt="Avatar of Jonathan Reinink" />
